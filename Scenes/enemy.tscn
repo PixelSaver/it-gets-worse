@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://hewpbt8k483p"]
+[gd_scene load_steps=5 format=3 uid="uid://hewpbt8k483p"]
 
+[ext_resource type="Script" uid="uid://bdfa32qk62ofn" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="1_hghv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
+custom_solver_bias = 1.0
 radius = 70.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
+radius = 80.0
+
 [node name="Enemy" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_1f0kj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.976471, 0.282353, 1, 1)
@@ -13,3 +21,9 @@ texture = ExtResource("1_hghv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1f0kj")
+
+[node name="HitScan" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitScan"]
+shape = SubResource("CircleShape2D_hghv2")
