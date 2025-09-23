@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=6 format=3 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_8gbba"]
 [ext_resource type="Script" uid="uid://5iefwvgpe8i4" path="res://Scripts/enemy_spawner.gd" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://clie7ovm0xlsm" path="res://Scripts/gun.gd" id="3_jjvhh"]
-[ext_resource type="Script" uid="uid://bb13lqpo43s7h" path="res://Scripts/bullet_container.gd" id="5_kry3j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjvhh"]
 radius = 70.0
@@ -36,6 +35,3 @@ script = ExtResource("3_jjvhh")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_8gbba")
-
-[node name="BulletContainer" type="Node2D" parent="."]
-script = ExtResource("5_kry3j")
