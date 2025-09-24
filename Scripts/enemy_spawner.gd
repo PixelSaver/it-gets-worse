@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 	
 func spawn_enemy():
 	if Global.player == null: return
-	if Global.enemy_list.size() > 0: return
 	
 	var rand_dir = Vector2.from_angle(randf_range(0, 2 * PI))
 	var curr_enemy = enemy_scene.instantiate()

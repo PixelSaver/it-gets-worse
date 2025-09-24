@@ -1,13 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=10 format=3 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_8gbba"]
 [ext_resource type="Script" uid="uid://5iefwvgpe8i4" path="res://Scripts/enemy_spawner.gd" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://clie7ovm0xlsm" path="res://Scripts/gun.gd" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://cjrrrihvbu5g2" path="res://Scripts/Components/health_component.tscn" id="4_6bp64"]
+[ext_resource type="PackedScene" uid="uid://ccmysrmb86a4n" path="res://Scripts/Components/hitbox_component.tscn" id="5_344ge"]
 [ext_resource type="Script" uid="uid://bb13lqpo43s7h" path="res://Scripts/bullet_container.gd" id="5_kry3j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjvhh"]
-radius = 70.0
+radius = 65.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ynf5e"]
+radius = 75.0
 
 [node name="Main" type="Node2D"]
 
@@ -33,6 +38,16 @@ position_smoothing_speed = 10.0
 
 [node name="Gun" type="Node2D" parent="Player"]
 script = ExtResource("3_jjvhh")
+
+[node name="HealthComponent" parent="Player" instance=ExtResource("4_6bp64")]
+
+[node name="HitboxComponent" parent="Player" node_paths=PackedStringArray("health_component") groups=["Player"] instance=ExtResource("5_344ge")]
+collision_layer = 3
+collision_mask = 3
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HitboxComponent"]
+shape = SubResource("CircleShape2D_ynf5e")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_8gbba")

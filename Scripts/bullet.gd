@@ -1,18 +1,21 @@
 extends Area2D
 class_name Bullet
 
-var bullet_speed 
-var velocity
+var bullet_speed : float
+var velocity : Vector2
 var stored_attack : Attack
 var bullet_lifetime : float
-var bullet_health 
+var bullet_pierce : int 
 
-func init(speed:float, dir:Vector2, attack:Attack, lifetime:float=10, health:int=1):
+func init(speed:float, dir:Vector2, lifetime:float=10):
 	bullet_speed = speed
 	velocity = dir
-	stored_attack = attack
+	self.rotation = dir.angle()
 	bullet_lifetime = lifetime
-	bullet_health = health
+	
+	stored_attack = Attack.new()
+	stored_attack.atk_str = 1
+	bullet_pierce = 1
 
 func _physics_process(delta: float) -> void:
 	self.translate(velocity * delta * bullet_speed)
@@ -23,17 +26,8 @@ func _process(delta: float) -> void:
 		self.queue_free()
 
 
-func _on_body_entered(body: Node2D) -> void:
-	var hit = false
-	#if body is Player:
-		#body = body as Player
-		#body.damage_player(stored_attack)
-		#bullet_health -= 1
-	#elif body is Enemy:
-	if body is Enemy:
-		body = body as Enemy
-		body.damage_enemy(stored_attack)
-		bullet_health -= 1
-		
-	if bullet_health <= 0:
+func _on_area_entered(area: Area2D) -> void:
+	if area is HitboxComponent:
+		var health = area as HitboxComponent
+		health.damage(stored_attack)
 		queue_free()
