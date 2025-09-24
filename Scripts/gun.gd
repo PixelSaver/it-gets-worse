@@ -17,7 +17,7 @@ func fire(dir:Vector2, speed:float) -> bool:
 	curr_bullet.global_position = self.global_position
 	Global.bullet_cont.add_child(curr_bullet)
 	
-	for strategy in Global.player.upgrades:
+	for strategy in Global.player.bullet_upgrades:
 		strategy.apply_upgrade(curr_bullet)
 	
 	timer = 0
