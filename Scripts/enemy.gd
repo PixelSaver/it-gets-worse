@@ -19,7 +19,7 @@ func get_atk() -> Attack:
 	var attack = Attack.new()
 	attack.atk_str = 1
 	attack.atk_pos = global_position
-	attack.knockback_str = 30
+	attack.knockback_str = 10
 	return attack
 
 func _on_hitbox_component_area_entered(area: Area2D) -> void:

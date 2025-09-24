@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://5gsaf116psh6"]
 
 [ext_resource type="Script" uid="uid://cb6d0qpiftaia" path="res://Scripts/bullet.gd" id="1_oduel"]
-[ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_ycag2"]
+[ext_resource type="Texture2D" uid="uid://crrmfqyto61s7" path="res://Assets/bullet/4x6bulletyellow.png" id="2_oduel"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oduel"]
-radius = 30.0
-height = 130.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycag2"]
+size = Vector2(39.9998, 60.0001)
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 0
@@ -14,13 +13,13 @@ script = ExtResource("1_oduel")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0.180392, 1)
-rotation = -1.5708
-scale = Vector2(0.5, 1)
-texture = ExtResource("2_ycag2")
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("2_oduel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
-shape = SubResource("CapsuleShape2D_oduel")
+shape = SubResource("RectangleShape2D_ycag2")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -63,7 +63,7 @@ script = ExtResource("3_jjvhh")
 collision_layer = 3
 collision_mask = 3
 health_component = NodePath("../HealthComponent")
-invulnerability_timer = 0.5
+invulnerability_timer = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HitboxComponent"]
 shape = SubResource("CircleShape2D_ynf5e")
@@ -158,9 +158,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Panel" type="Panel" parent="UI/Control/HUD/HBoxContainer"]
+[node name="Panel" type="ProgressBar" parent="UI/Control/HUD/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 10.0
+step = 1.0
+value = 10.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Control/HUD/HBoxContainer/Panel"]
 layout_mode = 1
@@ -186,7 +190,9 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="DeathMenu" parent="UI" instance=ExtResource("9_ynf5e")]
+visible = false
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("10_hptm8")]
+visible = false
 
 [connection signal="health_changed" from="Player/HealthComponent" to="UI" method="_on_health_component_health_changed"]
