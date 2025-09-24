@@ -1,7 +1,14 @@
 extends CanvasLayer
 class_name UI
 
-@onready var hud_text = $Control/HUD/HBoxContainer/Panel/RichTextLabel
+@onready var hud = $Control/HUD
+@onready var hud_text = hud.get_node("$HBoxContainer/Panel/RichTextLabel")
+@onready var upgrade_panel = $Control/UpgradePanel
+var ui : UI
+
+func _ready():
+	await Global.ui
+	ui = Global.ui
 
 func _on_health_component_health_changed(new_health: float, max_health:float) -> void:
 	hud_text.text = ""

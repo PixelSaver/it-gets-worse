@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="It Gets Worse"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="uid://bjikkp21uyvjf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
@@ -27,6 +27,12 @@ window/size/viewport_height=1296
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://UI/": "green"
+}
 
 [global_group]
 
