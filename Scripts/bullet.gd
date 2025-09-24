@@ -4,7 +4,6 @@ class_name Bullet
 var bullet_speed : float
 var bullet_direction : Vector2 :
 	set(dir):
-		print(Global.enemy_list.size())
 		bullet_direction = dir.normalized()
 		self.rotation = dir.angle()
 var stored_attack : Attack

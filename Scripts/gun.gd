@@ -5,14 +5,15 @@ class_name Gun
 var spread : float = .5
 var recoil_str : float = 300
 var multishot : int = 5
-var cooldown = .1
+var bullets_per_second = 5
 var timer = 1000000
 
 func _process(delta: float) -> void:
 	timer += delta
 
 func fire(dir: Vector2) -> bool:
-	if timer < cooldown: return false
+	if timer < 1/float(bullets_per_second): return false
+	timer = 0
 	
 	# normalize the base direction
 	dir = dir.normalized()
@@ -35,7 +36,6 @@ func fire(dir: Vector2) -> bool:
 	var player = get_parent() as Player
 	player.add_impulse(-dir * recoil_str)
 	
-	timer = 0
 	return true
 
 func _spawn_bullet(angle: float) -> void:
