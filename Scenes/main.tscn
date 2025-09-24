@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=15 format=3 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_8gbba"]
@@ -14,6 +14,21 @@ radius = 65.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynf5e"]
 radius = 75.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_344ge"]
+distance = -5000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ynf5e"]
+normal = Vector2(0, 1)
+distance = -5000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hptm8"]
+normal = Vector2(-1, 0)
+distance = -10000.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d1ilt"]
+normal = Vector2(1, 0)
+distance = -10000.0
 
 [node name="Main" type="Node2D"]
 
@@ -56,7 +71,22 @@ script = ExtResource("3_8gbba")
 [node name="BulletContainer" type="Node2D" parent="."]
 script = ExtResource("5_kry3j")
 
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="bottom" type="CollisionShape2D" parent="Borders"]
+shape = SubResource("WorldBoundaryShape2D_344ge")
+
+[node name="top" type="CollisionShape2D" parent="Borders"]
+shape = SubResource("WorldBoundaryShape2D_ynf5e")
+
+[node name="right" type="CollisionShape2D" parent="Borders"]
+shape = SubResource("WorldBoundaryShape2D_hptm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
+shape = SubResource("WorldBoundaryShape2D_d1ilt")
+
 [node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
 script = ExtResource("8_344ge")
 
 [node name="Control" type="Control" parent="UI"]
