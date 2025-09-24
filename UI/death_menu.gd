@@ -39,6 +39,7 @@ func open() -> void:
 
 func _on_restart_button_pressed() -> void:
 	#Global.reset()
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 	#close()
 

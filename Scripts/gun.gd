@@ -4,6 +4,7 @@ class_name Gun
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 var spread : float = .3
 var recoil_str : float = 100
+var multishot
 var cooldown = .1
 var timer = 1000000
 

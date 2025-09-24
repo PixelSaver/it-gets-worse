@@ -39,7 +39,6 @@ func open() -> void:
 	show()
 	resume_button.grab_focus()
 	
-	Global.release_mouse()
 	get_tree().paused = true
 
 	modulate.a = 0.0
