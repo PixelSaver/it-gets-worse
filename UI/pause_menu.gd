@@ -34,8 +34,8 @@ func close() -> void:
 
 
 func open() -> void:
-	prev_state = Global.game_state
-	Global.game_state = Global.Game.PAUSE_MENU
+	prev_state = Global.state
+	Global.state = Global.STATE.PAUSE
 	show()
 	resume_button.grab_focus()
 	
@@ -60,7 +60,7 @@ func open() -> void:
 
 
 func _on_resume_button_pressed() -> void:
-	Global.game_state = prev_state
+	Global.state = prev_state
 	close()
 
 func _on_quit_button_pressed() -> void:
