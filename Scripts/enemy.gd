@@ -12,6 +12,7 @@ func _ready() -> void:
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if not Global.player: return
 	var dir_to_player = self.global_position.direction_to(Global.player.global_position + Global.player.velocity/10)
+	dir_to_player = Vector2.from_angle(dir_to_player.angle() + randfn(0,1)).normalized()
 	state.apply_force(dir_to_player * enemy_speed)
 
 func get_atk() -> Attack:

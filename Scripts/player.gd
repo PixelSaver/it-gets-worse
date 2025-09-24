@@ -9,6 +9,7 @@ var player_speed = 500
 @onready var gun : Gun = $Gun
 var player_mag_size
 var player_mag_current
+var gun_automatic : bool = true
 var bullet_upgrades : Array[BaseBulletStrategy] = []
 
 func _ready():
@@ -17,7 +18,13 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("left_click"):
+	if Input.is_action_pressed("left_click") and gun_automatic:
+		gun.fire(
+			global_position.direction_to(
+				get_global_mouse_position()
+			)
+		)
+	elif Input.is_action_just_pressed("left_click"):
 		gun.fire(
 			global_position.direction_to(
 				get_global_mouse_position()
