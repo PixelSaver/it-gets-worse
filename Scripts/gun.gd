@@ -3,7 +3,7 @@ class_name Gun
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 var spread : float = .5
-var recoil_str : float = 100
+var recoil_str : float = 300
 var multishot : int = 5
 var cooldown = .1
 var timer = 1000000
@@ -32,7 +32,9 @@ func fire(dir: Vector2) -> bool:
 			_spawn_bullet(base_angle + offset)
 	
 	# apply recoil (use original dir, not offset one)
-	get_parent().add_impulse(dir * recoil_str)
+	var player = get_parent() as Player
+	player.add_impulse(-dir * recoil_str)
+	
 	timer = 0
 	return true
 
@@ -43,6 +45,7 @@ func _spawn_bullet(angle: float) -> void:
 	
 	curr_bullet.init(direction)
 	curr_bullet.bullet_speed = 1000
+	curr_bullet.bullet_lifetime = 3
 	curr_bullet.global_position = global_position
 	Global.bullet_cont.add_child(curr_bullet)
 	
