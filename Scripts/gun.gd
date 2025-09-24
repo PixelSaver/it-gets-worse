@@ -2,7 +2,7 @@ extends Node2D
 class_name Gun
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
-var spread : float = .3
+var spread : float = .5
 var recoil_str : float = 100
 var multishot : int = 5
 var cooldown = .1
@@ -19,7 +19,8 @@ func fire(dir: Vector2) -> bool:
 	var base_angle = dir.angle()
 	
 	if multishot == 1:
-		_spawn_bullet(base_angle)
+		var rand_angle = (dir + Vector2.from_angle(randfn(dir.angle(), spread))).angle()
+		_spawn_bullet(rand_angle)
 	else:
 		# total spread (in radians)
 		var total_spread = spread
@@ -38,6 +39,7 @@ func fire(dir: Vector2) -> bool:
 func _spawn_bullet(angle: float) -> void:
 	var curr_bullet : Bullet = bullet_scene.instantiate()
 	var direction = Vector2.from_angle(angle).normalized()
+	
 	
 	curr_bullet.init(direction)
 	curr_bullet.bullet_speed = 1000
