@@ -7,8 +7,7 @@ var stored_attack : Attack
 var bullet_lifetime : float
 var bullet_pierce : int 
 
-func init(speed:float, dir:Vector2, lifetime:float=10):
-	bullet_speed = speed
+func init(dir:Vector2, lifetime:float=10):
 	velocity = dir
 	self.rotation = dir.angle()
 	bullet_lifetime = lifetime

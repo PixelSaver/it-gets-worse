@@ -14,11 +14,17 @@ var bullet_upgrades : Array[BaseBulletStrategy] = []
 func _ready():
 	Global.player = self
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_click"):
-		gun.fire(global_position.direction_to(get_global_mouse_position()), 1000)
+
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("left_click"):
+		gun.fire(
+			global_position.direction_to(
+				get_global_mouse_position()
+			)
+		)
+	
+	
 	var direction := Input.get_vector("left", "right", "up", "down")
 	if direction:
 		velocity = direction * player_speed
