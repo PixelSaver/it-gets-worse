@@ -48,4 +48,4 @@ func _physics_process(delta: float) -> void:
 			#self.damage_player(collider.get_atk())
 
 func kill():
-	pass
+	Global.ui.death_menu.open()

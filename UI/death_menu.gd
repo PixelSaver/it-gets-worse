@@ -14,11 +14,11 @@ func _ready() -> void:
 
 
 func open() -> void:
-	Global.game_state = Global.Game.DIED
+	#Global.game_state = Global.Game.DIED
 	show()
 	restart_button.grab_focus()
 	
-	Global.release_mouse()
+	#Global.release_mouse()
 	get_tree().paused = true
 
 	modulate.a = 0.0
@@ -38,8 +38,8 @@ func open() -> void:
 	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 func _on_restart_button_pressed() -> void:
-	Global.reset()
-	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	#Global.reset()
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 	#close()
 
 

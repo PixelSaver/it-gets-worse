@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=17 format=3 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_8gbba"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ccmysrmb86a4n" path="res://Scripts/Components/hitbox_component.tscn" id="5_344ge"]
 [ext_resource type="Script" uid="uid://bb13lqpo43s7h" path="res://Scripts/bullet_container.gd" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://bv1d4tq2qulb6" path="res://Scripts/ui.gd" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://c6nbnwaqlkj43" path="res://UI/death_menu.tscn" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://dagq5n6bqn3fv" path="res://UI/pause_menu.tscn" id="10_hptm8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjvhh"]
 radius = 65.0
@@ -181,5 +183,9 @@ horizontal_alignment = 1
 [node name="HSeparator" type="Control" parent="UI/Control/HUD"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="DeathMenu" parent="UI" instance=ExtResource("9_ynf5e")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("10_hptm8")]
 
 [connection signal="health_changed" from="Player/HealthComponent" to="UI" method="_on_health_component_health_changed"]
