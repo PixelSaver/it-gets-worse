@@ -8,10 +8,8 @@ func _ready() -> void:
 	health = MAX_HEALTH
 	
 func damage(attack: Attack):
-	health -= attack.atk_str
+	health -= attack.atk_strddddddddddd
 	
-	if get_parent().is_in_group("Player"):
-		print_debug("hurtsa")
 	if health <= 0:
 		if get_parent().has_method("kill"):
 			get_parent().kill()

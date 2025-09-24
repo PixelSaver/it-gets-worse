@@ -1,12 +1,15 @@
 extends CharacterBody2D
 class_name Player
 
+# Components
 @onready var health_component : HealthComponent = $HealthComponent
 @onready var hitbox_component : HitboxComponent = $HitboxComponent
 var player_speed = 500
+# Gun stuff
 @onready var gun : Gun = $Gun
 var player_mag_size
 var player_mag_current
+var bullet_upgrades : Array[BaseBulletStrategy] = []
 
 func _ready():
 	Global.player = self
