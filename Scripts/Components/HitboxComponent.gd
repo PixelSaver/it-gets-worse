@@ -4,6 +4,7 @@ class_name HitboxComponent
 @export var health_component : HealthComponent
 @export var invulnerability_timer = 0.0
 var invulnerable := false
+var is_dead := false
 
 func damage(attack: Attack):
 	#TODO Fix player getting stuck but not getting attacked... refresh areas?

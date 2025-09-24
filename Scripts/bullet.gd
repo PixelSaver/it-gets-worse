@@ -28,5 +28,8 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
 		var health = area as HitboxComponent
+		if health.is_dead == true: return
 		health.damage(stored_attack)
-		queue_free()
+		bullet_pierce -= 1
+		if bullet_pierce <= 0:
+			queue_free()
