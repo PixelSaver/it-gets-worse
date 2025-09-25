@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjrrrihvbu5g2" path="res://Scripts/Components/health_component.tscn" id="4_6bp64"]
 [ext_resource type="PackedScene" uid="uid://ccmysrmb86a4n" path="res://Scripts/Components/hitbox_component.tscn" id="5_344ge"]
 [ext_resource type="Script" uid="uid://bb13lqpo43s7h" path="res://Scripts/bullet_container.gd" id="5_kry3j"]
-[ext_resource type="Script" uid="uid://bv1d4tq2qulb6" path="res://Scripts/ui.gd" id="8_344ge"]
+[ext_resource type="Script" uid="uid://bv1d4tq2qulb6" path="res://UI/ui.gd" id="8_344ge"]
 [ext_resource type="Script" uid="uid://cdhe8rcmd38se" path="res://Scripts/upgrade_manager.gd" id="9_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://c6nbnwaqlkj43" path="res://UI/death_menu.tscn" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://cys0c04r4eedc" path="res://Scenes/ui_upgrade.tscn" id="10_6iyac"]

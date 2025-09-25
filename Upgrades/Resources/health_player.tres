@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealthPlayerStrategy" load_steps=3 format=3 uid="uid://17ewy5yqlann"]
+
+[ext_resource type="Script" uid="uid://bx8niwwdu3omc" path="res://Upgrades/health_player_strategy.gd" id="1_8k7yn"]
+[ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_shlwg"]
+
+[resource]
+script = ExtResource("1_8k7yn")
+max_health_change = 1.0
+texture = ExtResource("2_shlwg")
+upgrade_text = "Speed"
+upgrade_description = ""
