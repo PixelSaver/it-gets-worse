@@ -17,6 +17,10 @@ var processing_damage = false
 
 func _ready() -> void:
 	health = max_health
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
+	health_changed.emit(health, max_health)
 	
 func damage(attack: Attack):
 	damage_queue.append(attack)
@@ -48,5 +52,5 @@ func _process_damage_queue():
 ## Takes in a multiplier to affect max health proportionally
 func update_max_health(max_multiplier:float):
 	print("max health updated")
-	max_health *= max_multiplier
 	health *= max_multiplier
+	max_health *= max_multiplier

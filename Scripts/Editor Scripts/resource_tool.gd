@@ -1,6 +1,13 @@
 @tool
 extends EditorScript
 
+## Change this to append something on this specific wave of resources
+const STRING_MOD = ""
+## Only use this to change to inverse
+const ADDON_MULT = 1
+
+const OUTPUT_DIRECTORY = "res://Upgrades/Strategies"
+
 const OUTPUT_EXTENSION = ".tres"
 
 var strategy_files = []
@@ -47,12 +54,9 @@ func _generate_all_resources():
 
 func _get_resource_output_path(script_path: String) -> String:
 	var filename = script_path.get_file().get_basename()
-	var clean_name = _clean_strategy_name(filename)
+	var clean_name = _clean_strategy_name(filename) 
 	
-	# Change this path to wherever you want the resources
-	var output_dir = "res://Upgrades/Resources"  # Or "res://Resources" or any path you want
-	
-	return output_dir + "/" + clean_name.to_snake_case() + OUTPUT_EXTENSION
+	return OUTPUT_DIRECTORY + "/" + clean_name.to_snake_case() + STRING_MOD + OUTPUT_EXTENSION
 
 func _clean_strategy_name(name: String) -> String:
 	# Remove "Strategy" suffix if present

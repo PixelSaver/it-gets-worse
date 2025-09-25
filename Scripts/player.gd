@@ -26,8 +26,8 @@ func _ready():
 	Global.player = self
 	
 	await get_tree().process_frame
-	for upgrade in Global.upgrade_manager.all_upgrades:
-		add_upgrade(upgrade)
+	for i in range(15):
+		add_upgrade(Global.upgrade_manager.pick_random(1)[0])
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("left_click") and gun_automatic:
