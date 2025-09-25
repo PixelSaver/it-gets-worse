@@ -4,9 +4,11 @@ class_name UI
 @onready var hud = $Control/HUD as Control
 @onready var hud_text = hud.get_node(^"HBoxContainer/Panel/RichTextLabel") as RichTextLabel
 @onready var hud_health_bar = hud.get_node(^"HBoxContainer/Panel") as ProgressBar
+@onready var hud_exp_bar: TextureProgressBar = hud.get_node(^"ExpBar")
 @onready var upgrade_panel: VBoxContainer = $Control/UpgradePanel
 @onready var upgrade_container: HBoxContainer = $Control/UpgradePanel/UpgradeContainer
 @onready var ui_upgrade_scene = preload("res://Scenes/ui_upgrade.tscn")
+
 
 @onready var death_menu = $DeathMenu as DeathMenu
 @onready var pause_menu: PauseMenu = $PauseMenu
@@ -47,4 +49,7 @@ func hide_upgrade():
 	upgrade_panel.hide()
 	upgrade_panel.release_focus()
 	get_tree().paused = false
-	
+
+func update_exp_bar(new_exp:float, new_max_exp:float):
+	hud_exp_bar.max_value = new_max_exp
+	hud_exp_bar.value = new_exp

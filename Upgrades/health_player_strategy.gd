@@ -1,7 +1,8 @@
 class_name HealthPlayerStrategy
 extends BasePlayerStrategy
 
-@export var max_health_change : float = 1
+@export var max_health_change : float = 1.2
 
 func apply_upgrade(player:Player):
+	print("trying to apply")
 	player.health_component.update_max_health(max_health_change)

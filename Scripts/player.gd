@@ -4,6 +4,7 @@ class_name Player
 # Components
 @onready var health_component : HealthComponent = $HealthComponent
 @onready var hitbox_component : HitboxComponent = $HitboxComponent
+@onready var experience_component: ExperienceComponent = $ExperienceComponent
 var player_speed = 300
 var acceleration = 5000
 var friction : float = 400
@@ -81,3 +82,4 @@ func add_upgrade(upgrade:BaseStrategy):
 		bullet_upgrades.append(upgrade)
 	elif upgrade is BasePlayerStrategy:
 		player_upgrades.append(upgrade)
+		upgrade.apply_upgrade(self)

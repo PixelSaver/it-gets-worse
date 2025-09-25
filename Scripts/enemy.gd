@@ -5,6 +5,7 @@ class_name Enemy
 @onready var hitbox_component : HitboxComponent = $HitboxComponent
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var anime: AnimatedSprite2D = $Anime
+var exp_value = 1
 var enemy_speed : float = 1000
 var is_dead : bool = false
 
@@ -37,6 +38,12 @@ func kill():
 	anime.play("death")
 	hitbox_component.is_dead = true
 	Global.enemy_list.erase(self)
+	Global
+	
+	#TODO Revamp EXP system
+	Global.player.experience_component.update_exp(exp_value)
+	
+	
 	await anime.animation_finished
 	queue_free()
 

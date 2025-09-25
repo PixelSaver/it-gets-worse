@@ -5,7 +5,7 @@ signal health_changed(new_health:float, max_health:float)
 
 @export var max_health := 4.0 :
 	set(value):
-		health_changed.emit(health, max_health)
+		#health_changed.emit(health, max_health)
 		max_health = value
 var health : float : 
 	set(value):
@@ -47,5 +47,6 @@ func _process_damage_queue():
 
 ## Takes in a multiplier to affect max health proportionally
 func update_max_health(max_multiplier:float):
+	print("max health updated")
 	max_health *= max_multiplier
 	health *= max_multiplier
