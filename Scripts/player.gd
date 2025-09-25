@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			)
 		)
 	elif Input.is_action_just_pressed("u") and OS.is_debug_build():
-		var test_array : Array[BaseStrategy] = [Global.upgrade_manager.all_upgrades[0],Global.upgrade_manager.all_upgrades[0],Global.upgrade_manager.all_upgrades[0]]
+		var test_array : Array[BaseStrategy] = Global.upgrade_manager.pick_random(3)
 		Global.ui.show_upgrade(test_array)
 	
 	

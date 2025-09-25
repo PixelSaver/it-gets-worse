@@ -91,6 +91,9 @@ func _generate_resource_file(script_path: String, output_path: String) -> bool:
 		print("Script is not a Resource: ", script_path)
 		return false
 	
+	# Set export variables based on filename
+	_set_export_variables(resource_instance, script_path)
+	
 	var result = ResourceSaver.save(resource_instance, output_path)
 	if result == OK:
 		print("Generated resource: ", output_path)
@@ -98,3 +101,22 @@ func _generate_resource_file(script_path: String, output_path: String) -> bool:
 	else:
 		print("Failed to save resource: ", output_path, " Error: ", result)
 		return false
+
+func _set_export_variables(resource_instance: Resource, script_path: String):
+	var filename = script_path.get_file().get_basename()
+	var clean_name = _clean_strategy_name(filename)
+	var snake_case_name = clean_name.to_snake_case()
+	
+	# Get the first word from snake_case (before first underscore)
+	var first_word = snake_case_name.split("_")[0]
+	
+	# Set upgrade_text to the first word (capitalized)
+	if resource_instance.has_method("set") and resource_instance.get_property_list().any(func(prop): return prop.name == "upgrade_text"):
+		resource_instance.upgrade_text = first_word.capitalize()
+		print("Set upgrade_text to: ", first_word.capitalize())
+	
+	# You can add more export variable modifications here
+	# For example:
+	# if resource_instance.get_property_list().any(func(prop): return prop.name == "strategy_name"):
+	#     resource_instance.strategy_name = clean_name
+	#     print("Set strategy_name to: ", clean_name)

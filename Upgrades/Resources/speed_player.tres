@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SpeedPlayerStrategy" load_steps=3 format=3 uid="uid://b8x3cyraebc8f"]
+[gd_resource type="Resource" script_class="SpeedPlayerStrategy" load_steps=3 format=3 uid="uid://tiets5i5u8i2"]
 
 [ext_resource type="Script" uid="uid://ditrnlncp7bxo" path="res://Upgrades/speed_player_strategy.gd" id="1_u3gkk"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_yfm8f"]

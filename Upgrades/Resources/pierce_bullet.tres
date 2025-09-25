@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PierceBulletStrategy" load_steps=3 format=3 uid="uid://c88xse15ypltf"]
+[gd_resource type="Resource" script_class="PierceBulletStrategy" load_steps=3 format=3 uid="uid://chqrpxv3penk5"]
 
 [ext_resource type="Script" uid="uid://b1wpb7wbfix1f" path="res://Upgrades/pierce_bullet_strategy.gd" id="1_8nm0g"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_0cxqj"]
@@ -7,5 +7,5 @@
 script = ExtResource("1_8nm0g")
 pierce_increase = 1.0
 texture = ExtResource("2_0cxqj")
-upgrade_text = "Speed"
+upgrade_text = "Pierce"
 upgrade_description = ""

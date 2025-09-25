@@ -20,3 +20,11 @@ func load_all_upgrades(path: String) -> Array[BaseStrategy]:
 func _ready():
 	all_upgrades = load_all_upgrades("res://Upgrades/Resources")
 	Global.upgrade_manager = self
+
+func pick_random(iter:int) -> Array[BaseStrategy]:
+	var out :Array[BaseStrategy] = []
+	for i in range(iter):
+		out.append(
+			all_upgrades[randi_range(0,all_upgrades.size()-1)]
+		)
+	return out

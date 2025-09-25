@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SizeBulletStrategy" load_steps=3 format=3 uid="uid://djy78gdr5ngq2"]
+[gd_resource type="Resource" script_class="SizeBulletStrategy" load_steps=3 format=3 uid="uid://boh8vo5ep7dwm"]
 
 [ext_resource type="Script" uid="uid://d1t0kvr0s2u7j" path="res://Upgrades/size_bullet_strategy.gd" id="1_1aado"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_mvio6"]
@@ -7,5 +7,5 @@
 script = ExtResource("1_1aado")
 size_multiplier = 1.2
 texture = ExtResource("2_mvio6")
-upgrade_text = "Speed"
+upgrade_text = "Size"
 upgrade_description = ""
