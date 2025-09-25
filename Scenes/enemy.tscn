@@ -8,10 +8,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
 custom_solver_bias = 1.0
-radius = 60.0
+radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghaa6"]
-radius = 70.0
+radius = 60.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_auwsv"]
 atlas = ExtResource("4_ghaa6")
@@ -173,5 +173,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_8cim4")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.816086
+offset = Vector2(0.705, -2.555)
 
 [connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]

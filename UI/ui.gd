@@ -42,3 +42,10 @@ func show_upgrade(upgrade_res_array:Array[BaseStrategy]):
 		curr_upgrade_ui_scene.upgrade_image = curr_upgrade.texture
 		curr_upgrade_ui_scene.upgrade_description = curr_upgrade.upgrade_description
 		
+		curr_upgrade_ui_scene.connect("pressed", Callable(hide_upgrade))
+		
+func hide_upgrade():
+	upgrade_panel.hide()
+	upgrade_panel.release_focus()
+	get_tree().paused = false
+	

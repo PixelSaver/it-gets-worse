@@ -1,7 +1,7 @@
 extends Node
 class_name HealthComponent
 
-@export var max_health := 10.0
+@export var max_health := 4.0
 var health : float
 signal health_changed(new_health:float)
 
