@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SpeedBulletStrategy" load_steps=3 format=3 uid="uid://by1wt1br1j774"]
+[gd_resource type="Resource" script_class="SpeedBulletStrategy" load_steps=3 format=3 uid="uid://crrf0koulx1hx"]
 
 [ext_resource type="Script" uid="uid://et4olpg8b1ll" path="res://Upgrades/speed_bullet_strategy.gd" id="1_fybsn"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_4i0fn"]
@@ -7,5 +7,5 @@
 script = ExtResource("1_fybsn")
 speed_multiplier = 1.2
 texture = ExtResource("2_4i0fn")
-upgrade_text = "BulletSpeed"
+upgrade_text = "Bullet Speed"
 upgrade_description = ""

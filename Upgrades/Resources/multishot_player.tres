@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MultishotPlayerStrategy" load_steps=3 format=3 uid="uid://bvkq4gt3dyu0p"]
+[gd_resource type="Resource" script_class="MultishotPlayerStrategy" load_steps=3 format=3 uid="uid://c7q8co54u36hu"]
 
 [ext_resource type="Script" uid="uid://dwqaqk1ty0nhw" path="res://Upgrades/multishot_player_strategy.gd" id="1_5sapv"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_7xcvg"]
@@ -7,5 +7,5 @@
 script = ExtResource("1_5sapv")
 multishot_increase = 1.0
 texture = ExtResource("2_7xcvg")
-upgrade_text = "PlayerMultishot"
+upgrade_text = "Player Multishot"
 upgrade_description = ""
