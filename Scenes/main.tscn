@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=27 format=3 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_8gbba"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c6nbnwaqlkj43" path="res://UI/death_menu.tscn" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://cys0c04r4eedc" path="res://Scenes/ui_upgrade.tscn" id="10_6iyac"]
 [ext_resource type="PackedScene" uid="uid://dagq5n6bqn3fv" path="res://UI/pause_menu.tscn" id="10_hptm8"]
+[ext_resource type="Script" uid="uid://ddrspqprbk38j" path="res://Scripts/game_timer.gd" id="15_wsu2k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjvhh"]
 radius = 50.0
@@ -198,6 +199,12 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 alignment = 2
 
+[node name="TimerLabel" type="RichTextLabel" parent="UI/Control/HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="UI/Control/HUD/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -258,6 +265,10 @@ anchors_preset = -1
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 
+[node name="GameTimer" type="Timer" parent="."]
+script = ExtResource("15_wsu2k")
+
 [connection signal="health_changed" from="Player/HealthComponent" to="UI" method="_on_health_component_health_changed"]
 [connection signal="exp_changed" from="Player/ExperienceComponent" to="UI" method="update_exp_bar"]
 [connection signal="level_up" from="Player/ExperienceComponent" to="UpgradeManager" method="_on_experience_component_level_up"]
+[connection signal="timer_update" from="GameTimer" to="UI" method="_on_game_timer_timer_update"]

@@ -40,3 +40,6 @@ var ui : UI
 
 # Upgrades
 var upgrade_manager : UpgradeManager
+
+# Game Timer
+var game_timer : GameTimer

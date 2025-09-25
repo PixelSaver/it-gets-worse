@@ -5,6 +5,7 @@ class_name UI
 @onready var hud_text = hud.get_node(^"HBoxContainer/Panel/RichTextLabel") as RichTextLabel
 @onready var hud_health_bar = hud.get_node(^"HBoxContainer/Panel") as ProgressBar
 @onready var hud_exp_bar: TextureProgressBar = hud.get_node(^"ExpBar")
+@onready var timer_label: RichTextLabel = $Control/HUD/HBoxContainer/TimerLabel
 @onready var upgrade_panel: VBoxContainer = $Control/UpgradePanel
 @onready var upgrade_container: HBoxContainer = $Control/UpgradePanel/UpgradeContainer
 @onready var ui_upgrade_scene = preload("res://Scenes/ui_upgrade.tscn")
@@ -53,3 +54,9 @@ func hide_upgrade():
 func update_exp_bar(new_exp:float, new_max_exp:float):
 	hud_exp_bar.max_value = new_max_exp
 	hud_exp_bar.value = new_exp
+
+
+func _on_game_timer_timer_update(new_timer_value: float) -> void:
+	if not Global.game_timer or not Global.game_timer.counting: return
+	timer_label.clear()
+	timer_label.append_text("[font_size=30]" + str(new_timer_value))
