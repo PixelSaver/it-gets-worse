@@ -9,7 +9,6 @@ signal health_changed(new_health:float, max_health:float)
 		max_health = value
 var health : float : 
 	set(value):
-		health_changed.emit(health, max_health)
 		health = value
 
 var damage_queue = []
@@ -44,6 +43,8 @@ func _process_damage_queue():
 			get_parent().kill()
 		else:
 			get_parent().queue_free()
+	
+	health_changed.emit(health, max_health)
 	
 	processing_damage = false
 	
