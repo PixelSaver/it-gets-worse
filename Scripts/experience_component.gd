@@ -2,6 +2,7 @@ extends Node2D
 class_name ExperienceComponent
 
 signal exp_changed(new_exp:float, new_max_exp:float)
+signal level_up(new_level:int)
 @export var leveling_curve : Curve
 var level :int = 1
 var exp : float = 0.0 :
@@ -16,10 +17,11 @@ func _ready():
 
 func update_exp(additional_exp:float):
 	exp += additional_exp
-	if exp > max_exp:
+	while exp > max_exp:
 		exp -= max_exp
 		max_exp = calc_max_exp(level + 1)
 		level += 1
+		level_up.emit(level)
 	exp_changed.emit(exp, max_exp)
 
 func calc_max_exp(new_level:int):

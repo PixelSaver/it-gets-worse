@@ -260,3 +260,4 @@ mouse_filter = 2
 
 [connection signal="health_changed" from="Player/HealthComponent" to="UI" method="_on_health_component_health_changed"]
 [connection signal="exp_changed" from="Player/ExperienceComponent" to="UI" method="update_exp_bar"]
+[connection signal="level_up" from="Player/ExperienceComponent" to="UpgradeManager" method="_on_experience_component_level_up"]

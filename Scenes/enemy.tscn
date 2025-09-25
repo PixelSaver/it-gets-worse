@@ -173,7 +173,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_8cim4")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.201594
+frame_progress = 0.522074
 offset = Vector2(0.705, -2.555)
 
 [connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]

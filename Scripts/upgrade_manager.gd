@@ -28,3 +28,8 @@ func pick_random(iter:int) -> Array[BaseStrategy]:
 			all_upgrades[randi_range(0,all_upgrades.size()-1)]
 		)
 	return out
+
+
+func _on_experience_component_level_up(new_level: int) -> void:
+	var test_array : Array[BaseStrategy] = pick_random(3)
+	Global.ui.show_upgrade(test_array)

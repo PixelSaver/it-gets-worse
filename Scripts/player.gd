@@ -24,6 +24,10 @@ func apply_force(f: Vector2) -> void:
 	
 func _ready():
 	Global.player = self
+	
+	await get_tree().process_frame
+	for upgrade in Global.upgrade_manager.all_upgrades:
+		add_upgrade(upgrade)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("left_click") and gun_automatic:
