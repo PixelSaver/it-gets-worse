@@ -38,9 +38,7 @@ func show_upgrade(upgrade_res_array:Array[BaseStrategy]):
 		var curr_upgrade = upgrade_res_array[i] as BaseStrategy
 		var curr_upgrade_ui_scene = ui_upgrade_scene.instantiate() as UIUpgrade
 		upgrade_container.add_child(curr_upgrade_ui_scene)
-		curr_upgrade_ui_scene.upgrade_text = curr_upgrade.upgrade_text
-		curr_upgrade_ui_scene.upgrade_image = curr_upgrade.texture
-		curr_upgrade_ui_scene.upgrade_description = curr_upgrade.upgrade_description
+		curr_upgrade_ui_scene.stored_upgrade = curr_upgrade
 		
 		curr_upgrade_ui_scene.connect("pressed", Callable(hide_upgrade))
 		

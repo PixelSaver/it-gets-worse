@@ -11,7 +11,7 @@ enum STATE {
 }
 
 # Player
-var player : CharacterBody2D 
+var player : Player 
 
 # Enemy
 var enemy_list : Array[RigidBody2D]

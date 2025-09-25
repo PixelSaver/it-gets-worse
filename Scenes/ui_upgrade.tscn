@@ -39,3 +39,5 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.6
 text = "I wonder what this does???"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
