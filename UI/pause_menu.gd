@@ -13,7 +13,7 @@ func _ready() -> void:
 
 var prev_state 
 func close() -> void:
-	Global.game_state = Global.Game.CAVE_RUNNING
+	#Global.state = Global.STATE.PAUSE
 	Global.capture_mouse()
 	
 	var tween := create_tween()

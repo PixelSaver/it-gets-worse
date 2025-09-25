@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SpeedPlayerStrategy" load_steps=3 format=3 uid="uid://tiets5i5u8i2"]
+[gd_resource type="Resource" script_class="SpeedPlayerStrategy" load_steps=3 format=3 uid="uid://c3duux7vgya08"]
 
 [ext_resource type="Script" uid="uid://ditrnlncp7bxo" path="res://Upgrades/speed_player_strategy.gd" id="1_u3gkk"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_yfm8f"]
@@ -7,5 +7,5 @@
 script = ExtResource("1_u3gkk")
 speed_multiplier = 1.2
 texture = ExtResource("2_yfm8f")
-upgrade_text = "Speed"
+upgrade_text = "PlayerSpeed"
 upgrade_description = ""

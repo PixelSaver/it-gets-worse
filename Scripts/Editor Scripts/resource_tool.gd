@@ -109,11 +109,13 @@ func _set_export_variables(resource_instance: Resource, script_path: String):
 	
 	# Get the first word from snake_case (before first underscore)
 	var first_word = snake_case_name.split("_")[0]
+	var second_word = snake_case_name.split("_")[1]
 	
 	# Set upgrade_text to the first word (capitalized)
 	if resource_instance.has_method("set") and resource_instance.get_property_list().any(func(prop): return prop.name == "upgrade_text"):
-		resource_instance.upgrade_text = first_word.capitalize()
-		print("Set upgrade_text to: ", first_word.capitalize())
+		var res_name = second_word.capitalize() + first_word.capitalize()
+		resource_instance.upgrade_text = res_name
+		print("Set upgrade_text to: ", res_name)
 	
 	# You can add more export variable modifications here
 	# For example:
