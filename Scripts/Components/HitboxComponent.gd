@@ -11,10 +11,11 @@ func damage(attack: Attack):
 	
 	if health_component and not invulnerable:
 		health_component.damage(attack)
+		
 		invulnerable = true
 		if get_parent() is Player:
 			get_parent().velocity = (global_position - attack.atk_pos) * attack.knockback_str
-		await get_tree().create_timer(invulnerability_timer).timeout
+		#await get_tree().create_timer(invulnerability_timer).timeout
 		invulnerable = false
 
 		

@@ -11,6 +11,8 @@ var bullet_lifetime : float
 var bullet_pierce : int 
 var bullet_ricochet : int
 
+var hit_enemies = []  
+
 func init(dir:Vector2, lifetime:float=10):
 	bullet_direction = dir
 	bullet_lifetime = lifetime
@@ -33,7 +35,10 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
 		var health = area as HitboxComponent
 		if health.is_dead == true: return
-		health.damage(stored_attack)
+		if health in hit_enemies: return  # This bullet already hit this enemy
+		
+		hit_enemies.append(health)
+		call_deferred("_apply_damage", health)
 		bullet_pierce -= 1
 		if bullet_pierce <= 0:
 			if bullet_ricochet > 0:
@@ -42,3 +47,6 @@ func _on_area_entered(area: Area2D) -> void:
 				bullet_direction = closest_enemy.global_position + closest_enemy.linear_velocity - global_position
 			else: 
 				queue_free()
+func _apply_damage(health: HitboxComponent):
+	if health.is_dead == true: return
+	health.damage(stored_attack)
