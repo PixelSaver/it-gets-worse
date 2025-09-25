@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=20 format=3 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_8gbba"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccmysrmb86a4n" path="res://Scripts/Components/hitbox_component.tscn" id="5_344ge"]
 [ext_resource type="Script" uid="uid://bb13lqpo43s7h" path="res://Scripts/bullet_container.gd" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://bv1d4tq2qulb6" path="res://Scripts/ui.gd" id="8_344ge"]
+[ext_resource type="Script" uid="uid://cdhe8rcmd38se" path="res://Scripts/upgrade_manager.gd" id="9_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://c6nbnwaqlkj43" path="res://UI/death_menu.tscn" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://cys0c04r4eedc" path="res://Scenes/ui_upgrade.tscn" id="10_6iyac"]
 [ext_resource type="PackedScene" uid="uid://dagq5n6bqn3fv" path="res://UI/pause_menu.tscn" id="10_hptm8"]
@@ -92,19 +93,25 @@ shape = SubResource("WorldBoundaryShape2D_hptm8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
 shape = SubResource("WorldBoundaryShape2D_d1ilt")
 
+[node name="UpgradeManager" type="Node2D" parent="."]
+script = ExtResource("9_fdnlq")
+
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 script = ExtResource("8_344ge")
 
 [node name="Control" type="Control" parent="UI"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="UpgradePanel" type="VBoxContainer" parent="UI/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -113,10 +120,12 @@ anchor_right = 0.8
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Panel" type="Control" parent="UI/Control/UpgradePanel"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Control/UpgradePanel/Panel"]
 layout_mode = 1
@@ -136,6 +145,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+mouse_filter = 2
 alignment = 1
 
 [node name="Upgrade" parent="UI/Control/UpgradePanel/UpgradeContainer" instance=ExtResource("10_6iyac")]
@@ -144,10 +154,12 @@ layout_mode = 2
 [node name="Upgrade2" type="Panel" parent="UI/Control/UpgradePanel/UpgradeContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 
 [node name="Upgrade3" type="Panel" parent="UI/Control/UpgradePanel/UpgradeContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 
 [node name="HUD" type="VBoxContainer" parent="UI/Control"]
 layout_mode = 1
@@ -156,6 +168,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/HUD"]
 layout_mode = 2
@@ -167,11 +180,13 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+mouse_filter = 2
 
 [node name="Panel" type="ProgressBar" parent="UI/Control/HUD/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+mouse_filter = 2
 max_value = 10.0
 step = 1.0
 value = 10.0
@@ -198,11 +213,17 @@ horizontal_alignment = 1
 [node name="HSeparator" type="Control" parent="UI/Control/HUD"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="DeathMenu" parent="UI" instance=ExtResource("9_ynf5e")]
 visible = false
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("10_hptm8")]
 visible = false
+anchors_preset = -1
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 
 [connection signal="health_changed" from="Player/HealthComponent" to="UI" method="_on_health_component_health_changed"]

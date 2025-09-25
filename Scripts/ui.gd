@@ -27,14 +27,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		pause_menu.open()
 
 func show_upgrade(upgrade_res_array:Array[BaseStrategy]):
+	upgrade_panel.show()
+	upgrade_panel.grab_focus()
+	get_tree().paused = true
+	
 	for child in upgrade_container.get_children():
 		child.queue_free()
 	
 	for i in range(0,upgrade_res_array.size()):
 		var curr_upgrade = upgrade_res_array[i] as BaseStrategy
 		var curr_upgrade_ui_scene = ui_upgrade_scene.instantiate() as UIUpgrade
-		curr_upgrade_ui_scene.text = curr_upgrade.upgrade_text
-		curr_upgrade_ui_scene.image = curr_upgrade.texture
-		curr_upgrade_ui_scene.description = curr_upgrade.upgrade_description
-		
 		upgrade_container.add_child(curr_upgrade_ui_scene)
+		curr_upgrade_ui_scene.upgrade_text = curr_upgrade.upgrade_text
+		curr_upgrade_ui_scene.upgrade_image = curr_upgrade.texture
+		curr_upgrade_ui_scene.upgrade_description = curr_upgrade.upgrade_description
+		

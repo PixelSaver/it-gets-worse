@@ -37,3 +37,6 @@ var bullet_cont : BulletContainer
 
 # UI
 var ui : UI
+
+# Upgrades
+var upgrade_manager : UpgradeManager

@@ -36,7 +36,9 @@ func kill():
 	call_deferred("disable_collision")
 	anime.play("death")
 	hitbox_component.is_dead = true
+	Global.enemy_list.erase(self)
 	await anime.animation_finished
 	queue_free()
+
 func disable_collision():
 	collision_shape.disabled = true

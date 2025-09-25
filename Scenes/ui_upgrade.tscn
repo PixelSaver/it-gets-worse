@@ -21,6 +21,7 @@ alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 text = "Upgrade 1"
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]

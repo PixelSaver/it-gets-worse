@@ -14,6 +14,7 @@ var player_mag_size
 var player_mag_current
 var gun_automatic : bool = true
 var bullet_upgrades : Array[BaseBulletStrategy] = []
+var player_upgrades : Array[BasePlayerStrategy] = []
 
 
 # Called by other nodes to add a force
@@ -36,6 +37,9 @@ func _physics_process(delta: float) -> void:
 				get_global_mouse_position()
 			)
 		)
+	elif Input.is_action_just_pressed("u") and OS.is_debug_build():
+		var test_array : Array[BaseStrategy] = [Global.upgrade_manager.all_upgrades[0],Global.upgrade_manager.all_upgrades[0],Global.upgrade_manager.all_upgrades[0]]
+		Global.ui.show_upgrade(test_array)
 	
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
@@ -71,3 +75,9 @@ func get_impulse(current_velocity:Vector2, target_velocity:Vector2, acceleration
 	
 func kill():
 	Global.ui.death_menu.open()
+	
+func add_upgrade(upgrade:BaseStrategy):
+	if upgrade is BaseBulletStrategy:
+		bullet_upgrades.append(upgrade)
+	elif upgrade is BasePlayerStrategy:
+		player_upgrades.append(upgrade)
