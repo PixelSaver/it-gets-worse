@@ -60,13 +60,13 @@ func add_impulse(impulse:Vector2)->void:
 	velocity += impulse
 
 ## Calculate impulse Vector2 for delta time amount
-func get_impulse(current_velocity:Vector2, target_velocity:Vector2, acceleration:float, delta:float)->Vector2:
+func get_impulse(current_velocity:Vector2, target_velocity:Vector2, acceleration_impulse:float, delta:float)->Vector2:
 	var _direction:Vector2 = target_velocity - current_velocity 
 	var _distance:float = _direction.length()
-	acceleration = delta * acceleration
+	acceleration_impulse = delta * acceleration_impulse
 	var _ratio:float = 0
 	if _distance > 0.0:
-		_ratio = min(acceleration / _distance, 1.0)
+		_ratio = min(acceleration_impulse / _distance, 1.0)
 	return (_direction * _ratio)
 	
 func kill():

@@ -4,9 +4,11 @@ class_name UI
 @onready var hud = $Control/HUD as Control
 @onready var hud_text = hud.get_node(^"HBoxContainer/Panel/RichTextLabel") as RichTextLabel
 @onready var hud_health_bar = hud.get_node(^"HBoxContainer/Panel") as ProgressBar
-@onready var upgrade_panel = $Control/UpgradePanel
+@onready var upgrade_panel: VBoxContainer = $Control/UpgradePanel
+@onready var upgrade_container: HBoxContainer = $Control/UpgradePanel/UpgradeContainer
+@onready var ui_upgrade_scene = preload("res://Scenes/ui_upgrade.tscn")
+
 @onready var death_menu = $DeathMenu as DeathMenu
-var ui : UI
 @onready var pause_menu: PauseMenu = $PauseMenu
 
 
@@ -23,3 +25,16 @@ func _on_health_component_health_changed(new_health: float, max_health:float) ->
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		pause_menu.open()
+
+func show_upgrade(upgrade_res_array:Array[BaseStrategy]):
+	for child in upgrade_container.get_children():
+		child.queue_free()
+	
+	for i in range(0,upgrade_res_array.size()):
+		var curr_upgrade = upgrade_res_array[i] as BaseStrategy
+		var curr_upgrade_ui_scene = ui_upgrade_scene.instantiate() as UIUpgrade
+		curr_upgrade_ui_scene.text = curr_upgrade.upgrade_text
+		curr_upgrade_ui_scene.image = curr_upgrade.texture
+		curr_upgrade_ui_scene.description = curr_upgrade.upgrade_description
+		
+		upgrade_container.add_child(curr_upgrade_ui_scene)

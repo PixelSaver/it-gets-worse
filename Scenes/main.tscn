@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=19 format=3 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_8gbba"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bb13lqpo43s7h" path="res://Scripts/bullet_container.gd" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://bv1d4tq2qulb6" path="res://Scripts/ui.gd" id="8_344ge"]
 [ext_resource type="PackedScene" uid="uid://c6nbnwaqlkj43" path="res://UI/death_menu.tscn" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://cys0c04r4eedc" path="res://Scenes/ui_upgrade.tscn" id="10_6iyac"]
 [ext_resource type="PackedScene" uid="uid://dagq5n6bqn3fv" path="res://UI/pause_menu.tscn" id="10_hptm8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjvhh"]
@@ -104,7 +105,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="UpgradePanel" type="VBoxContainer" parent="UI/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -114,31 +114,38 @@ anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="UI/Control/UpgradePanel"]
+[node name="Panel" type="Control" parent="UI/Control/UpgradePanel"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/UpgradePanel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control/UpgradePanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=50]Upgrades!"
+fit_content = true
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeContainer" type="HBoxContainer" parent="UI/Control/UpgradePanel"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 alignment = 1
 
-[node name="Upgrade1" type="Panel" parent="UI/Control/UpgradePanel/HBoxContainer"]
+[node name="Upgrade" parent="UI/Control/UpgradePanel/UpgradeContainer" instance=ExtResource("10_6iyac")]
+layout_mode = 2
+
+[node name="Upgrade2" type="Panel" parent="UI/Control/UpgradePanel/UpgradeContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="UI/Control/UpgradePanel/HBoxContainer/Upgrade1"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Upgrade 1"
-
-[node name="Upgrade2" type="Panel" parent="UI/Control/UpgradePanel/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Upgrade3" type="Panel" parent="UI/Control/UpgradePanel/HBoxContainer"]
+[node name="Upgrade3" type="Panel" parent="UI/Control/UpgradePanel/UpgradeContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
