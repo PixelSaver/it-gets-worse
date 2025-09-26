@@ -31,5 +31,6 @@ func pick_random(iter:int) -> Array[BaseStrategy]:
 
 
 func _on_experience_component_level_up(new_level: int) -> void:
-	var test_array : Array[BaseStrategy] = pick_random(3)
-	Global.ui.show_upgrade(test_array)
+	var upgrade_array : Array[BaseStrategy] = pick_random(3)
+	#Global.ui.show_upgrade(test_array)
+	Global.in_game_ui.show_upgrade(upgrade_array)

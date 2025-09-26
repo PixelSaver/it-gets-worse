@@ -38,7 +38,7 @@ func kill():
 	anime.play("death")
 	hitbox_component.is_dead = true
 	Global.enemy_list.erase(self)
-	Global
+	#Global
 	
 	#TODO Revamp EXP system
 	Global.player.experience_component.update_exp(exp_value)

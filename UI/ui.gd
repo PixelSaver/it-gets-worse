@@ -16,8 +16,6 @@ class_name UI
 
 
 
-func _ready():
-	Global.ui = self
 
 func _on_health_component_health_changed(new_health: float, max_health:float) -> void:
 	if not hud: return

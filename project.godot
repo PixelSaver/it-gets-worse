@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="It Gets Worse"
-run/main_scene="uid://bjikkp21uyvjf"
+run/main_scene="uid://b0r18e671nboh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
 
 Global="*res://Scripts/global.gd"
-AppConfig="*res://addons/maaacks_options_menus/base/scenes/autoloads/app_config.tscn"
 
 [display]
 
@@ -27,7 +26,7 @@ window/size/viewport_height=1296
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/maaacks_options_menus/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
 [file_customization]
 
@@ -43,7 +42,6 @@ Enemy=""
 
 [gui]
 
-theme/custom="uid://ci6s48yvpipim"
 theme/custom_font="uid://pntlljl77f2n"
 
 [input]
@@ -88,10 +86,6 @@ u={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":85,"key_label":0,"unicode":117,"location":0,"echo":false,"script":null)
 ]
 }
-
-[internationalization]
-
-locale/translations=PackedStringArray("res://addons/maaacks_options_menus/base/translations/menus_translations.en.translation", "res://addons/maaacks_options_menus/base/translations/menus_translations.fr.translation")
 
 [layer_names]
 

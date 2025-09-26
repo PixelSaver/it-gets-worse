@@ -37,6 +37,7 @@ var bullet_cont : BulletContainer
 
 # UI
 var ui : UI
+var in_game_ui : InGameUI
 
 # Upgrades
 var upgrade_manager : UpgradeManager

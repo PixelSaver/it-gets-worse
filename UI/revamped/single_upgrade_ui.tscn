@@ -37,8 +37,8 @@ corner_radius_bottom_left = 20
 corner_detail = 5
 
 [node name="Upgrade" type="Panel" node_paths=PackedStringArray("title", "image", "description")]
-clip_contents = true
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xpiot")
 script = ExtResource("1_808wt")
 title = NodePath("Button/MarginContainer/VBoxContainer/RichTextLabel")
@@ -47,6 +47,7 @@ description = NodePath("Button/MarginContainer/VBoxContainer/RichTextLabel3")
 stored_upgrade = ExtResource("2_808wt")
 
 [node name="Button" type="Button" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,18 +56,9 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.997171)
 size_flags_horizontal = 3
+mouse_force_pass_scroll_events = false
 theme_override_styles/hover = SubResource("StyleBoxFlat_v05fi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_q5ab1")
-
-[node name="HSplitContainer" type="VSplitContainer" parent="Button"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-split_offset = 100
 
 [node name="MarginContainer" type="MarginContainer" parent="Button"]
 layout_mode = 1
@@ -75,6 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 10
@@ -82,11 +75,13 @@ theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Button/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 40
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Button/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 60
 text = "Heyo!!!"
 fit_content = true
@@ -95,6 +90,7 @@ vertical_alignment = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Button/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 60
@@ -103,6 +99,7 @@ theme_override_constants/margin_bottom = 0
 [node name="TextureRect" type="TextureRect" parent="Button/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+mouse_filter = 2
 texture = ExtResource("1_fb6df")
 expand_mode = 4
 stretch_mode = 4
@@ -110,6 +107,7 @@ stretch_mode = 4
 [node name="RichTextLabel3" type="RichTextLabel" parent="Button/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "usdjfkjsdfjskdjflksjdflksjdlfksdfsdfsdfskdjfsdfasldkfjlasdfsdfsdf"
 fit_content = true
