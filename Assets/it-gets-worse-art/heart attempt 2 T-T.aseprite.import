@@ -1,0 +1,20 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://megdcgafyg7f"
+path="res://.godot/imported/heart attempt 2 T-T.aseprite-e632829bc3b41bdc0383130c5738479d.res"
+
+[deps]
+
+source_file="res://Assets/it-gets-worse-art/heart attempt 2 T-T.aseprite"
+dest_files=["res://.godot/imported/heart attempt 2 T-T.aseprite-e632829bc3b41bdc0383130c5738479d.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1

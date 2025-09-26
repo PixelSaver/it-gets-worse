@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dalr1718hr57v"
-path="res://.godot/imported/flame death spritesheet.png-79618d9f2d3c9290bf00d5e788124eff.ctex"
+uid="uid://b3kavbxd654a1"
+path="res://.godot/imported/enemyRed.png-9e764cb62c50cf8a99f87547e40ae8eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/flame/death/flame death spritesheet.png"
-dest_files=["res://.godot/imported/flame death spritesheet.png-79618d9f2d3c9290bf00d5e788124eff.ctex"]
+source_file="res://Assets/it-gets-worse-art/enemies/enemyRed.png"
+dest_files=["res://.godot/imported/enemyRed.png-9e764cb62c50cf8a99f87547e40ae8eb.ctex"]
 
 [params]
 

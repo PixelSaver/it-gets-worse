@@ -1,0 +1,20 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://dd56p5bg0y2ir"
+path="res://.godot/imported/bullet speed.aseprite-f9b9ae76a7bc0cb178dd4967418f5202.res"
+
+[deps]
+
+source_file="res://Assets/it-gets-worse-art/bullet/bullet speed.aseprite"
+dest_files=["res://.godot/imported/bullet speed.aseprite-f9b9ae76a7bc0cb178dd4967418f5202.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1

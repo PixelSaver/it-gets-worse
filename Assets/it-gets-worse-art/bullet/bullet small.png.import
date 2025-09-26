@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3kavbxd654a1"
-path="res://.godot/imported/enemyRed.png-7baacd3a7a897963c1ebb346b939c3b7.ctex"
+uid="uid://d2v026s264k3r"
+path="res://.godot/imported/bullet small.png-faca6d8c463db98d676590edb959e41b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemies/enemyRed.png"
-dest_files=["res://.godot/imported/enemyRed.png-7baacd3a7a897963c1ebb346b939c3b7.ctex"]
+source_file="res://Assets/it-gets-worse-art/bullet/bullet small.png"
+dest_files=["res://.godot/imported/bullet small.png-faca6d8c463db98d676590edb959e41b.ctex"]
 
 [params]
 

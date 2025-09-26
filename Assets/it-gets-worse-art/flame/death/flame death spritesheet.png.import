@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crrmfqyto61s7"
-path="res://.godot/imported/4x6bulletyellow.png-62be5d9506f43d7800b1fca1c9b24a52.ctex"
+uid="uid://dalr1718hr57v"
+path="res://.godot/imported/flame death spritesheet.png-8f5504704b2bfc98fa2cee5523bda8c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bullet/4x6bulletyellow.png"
-dest_files=["res://.godot/imported/4x6bulletyellow.png-62be5d9506f43d7800b1fca1c9b24a52.ctex"]
+source_file="res://Assets/it-gets-worse-art/flame/death/flame death spritesheet.png"
+dest_files=["res://.godot/imported/flame death spritesheet.png-8f5504704b2bfc98fa2cee5523bda8c1.ctex"]
 
 [params]
 

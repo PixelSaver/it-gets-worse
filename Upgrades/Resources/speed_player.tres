@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="SpeedPlayerStrategy" load_steps=3 format=3 uid="uid://dbsvy86ep2krq"]
 
 [ext_resource type="Script" uid="uid://ditrnlncp7bxo" path="res://Upgrades/speed_player_strategy.gd" id="1_u3gkk"]
-[ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_yfm8f"]
+[ext_resource type="Texture2D" uid="uid://bi2h1d61kloma" path="res://Assets/it-gets-worse-art/speed flying boots.aseprite" id="2_u3gkk"]
 
 [resource]
 script = ExtResource("1_u3gkk")
 speed_multiplier = 1.2
-texture = ExtResource("2_yfm8f")
+texture = ExtResource("2_u3gkk")
 upgrade_text = "Player Speed"
-upgrade_description = ""
+upgrade_description = "Makes player run 20% faster"

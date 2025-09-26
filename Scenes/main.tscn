@@ -1,9 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=26 format=3 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_8gbba"]
 [ext_resource type="Script" uid="uid://5iefwvgpe8i4" path="res://Scripts/enemy_spawner.gd" id="3_8gbba"]
-[ext_resource type="Texture2D" uid="uid://dn8mly03h8g8b" path="res://Assets/player.png" id="3_d1ilt"]
 [ext_resource type="Script" uid="uid://clie7ovm0xlsm" path="res://Scripts/gun.gd" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cjrrrihvbu5g2" path="res://Scripts/Components/health_component.tscn" id="4_6bp64"]
 [ext_resource type="PackedScene" uid="uid://ccmysrmb86a4n" path="res://Scripts/Components/hitbox_component.tscn" id="5_344ge"]
@@ -70,7 +69,6 @@ script = ExtResource("1_bo1nx")
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 z_index = 3
 scale = Vector2(5, 5)
-texture = ExtResource("3_d1ilt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_jjvhh")
@@ -257,9 +255,6 @@ texture_progress = SubResource("GradientTexture1D_h1bgf")
 visible = false
 layout_mode = 1
 mouse_filter = 2
-
-[node name="ColorRect" parent="UI/Control/DeathMenu" index="0"]
-color = Color(0, 0, 0, 0.643137)
 
 [node name="PauseMenu" parent="UI/Control" instance=ExtResource("10_hptm8")]
 visible = false

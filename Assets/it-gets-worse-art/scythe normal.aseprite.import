@@ -1,0 +1,20 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://kibvct4tt8ce"
+path="res://.godot/imported/scythe normal.aseprite-7ae3d21b76dae3ff45ce0a601203bc9f.res"
+
+[deps]
+
+source_file="res://Assets/it-gets-worse-art/scythe normal.aseprite"
+dest_files=["res://.godot/imported/scythe normal.aseprite-7ae3d21b76dae3ff45ce0a601203bc9f.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1
