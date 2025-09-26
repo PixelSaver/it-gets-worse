@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://f3haa0551yt7" path="res://UI/revamped/single_upgrade_ui.gd" id="1_808wt"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="1_fb6df"]
-[ext_resource type="Resource" uid="uid://dbsvy86ep2krq" path="res://Upgrades/Resources/speed_player.tres" id="2_808wt"]
+[ext_resource type="Resource" uid="uid://c7q8co54u36hu" path="res://Upgrades/Resources/multishot_player.tres" id="2_808wt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpiot"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

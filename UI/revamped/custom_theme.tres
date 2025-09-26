@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ci6s48yvpipim"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://ci6s48yvpipim"]
 
 [ext_resource type="FontFile" uid="uid://pntlljl77f2n" path="res://UI/revamped/fonts/Poco.ttf" id="1_pq5xj"]
 
@@ -36,6 +36,18 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hycjf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlrm1"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -63,6 +75,7 @@ default_font = ExtResource("1_pq5xj")
 default_font_size = 80
 Button/styles/focus = SubResource("StyleBoxFlat_wtfy2")
 Button/styles/hover = SubResource("StyleBoxFlat_lrelq")
+Button/styles/normal = SubResource("StyleBoxFlat_hycjf")
 Button/styles/pressed = SubResource("StyleBoxFlat_xlrm1")
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10

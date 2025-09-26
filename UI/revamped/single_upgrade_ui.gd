@@ -1,6 +1,8 @@
 extends Panel
 class_name SingleUIUpgrade
 
+signal single_ui_pressed(upgrade:BaseStrategy)
+
 @export var title: RichTextLabel 
 @export var image: TextureRect 
 @export var description: RichTextLabel 
@@ -39,4 +41,5 @@ func _update_ui():
 		description.append_text(stored_upgrade.upgrade_description)
 
 func _on_pressed() -> void:
+	single_ui_pressed.emit(stored_upgrade)
 	Global.player.add_upgrade(stored_upgrade)

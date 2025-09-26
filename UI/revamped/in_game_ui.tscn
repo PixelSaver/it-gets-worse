@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnbmr6e8l23qx"]
+[gd_scene load_steps=14 format=3 uid="uid://cnbmr6e8l23qx"]
 
 [ext_resource type="Theme" uid="uid://ci6s48yvpipim" path="res://UI/revamped/custom_theme.tres" id="1_je8vx"]
+[ext_resource type="Script" uid="uid://dk854470qyy57" path="res://UI/revamped/in_game_ui.gd" id="2_7l1m5"]
 [ext_resource type="PackedScene" uid="uid://jxg7bsdw0qv4" path="res://UI/revamped/single_upgrade_ui.tscn" id="2_ja3hb"]
 
 [sub_resource type="Gradient" id="Gradient_je8vx"]
@@ -16,14 +17,6 @@ bg_color = Color(0.345119, 0.68631, 0.432044, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je8vx"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.521569)
 
-[sub_resource type="Gradient" id="Gradient_xpiot"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.321569, 0.321569, 0.321569, 0.85098)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_v05fi"]
-gradient = SubResource("Gradient_xpiot")
-width = 1
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja3hb"]
 bg_color = Color(0.10748, 0.10748, 0.10748, 1)
 corner_radius_top_left = 50
@@ -31,7 +24,53 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[node name="InGameUI" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5ab1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpiot"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v05fi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="Gradient" id="Gradient_7l1m5"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.1, 0.7)
+colors = PackedColorArray(0.116741, 0.116741, 0.116741, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7l1m5"]
+gradient = SubResource("Gradient_7l1m5")
+width = 4096
+
+[node name="InGameUI" type="Control" node_paths=PackedStringArray("hud", "hud_health_bar", "hud_exp_bar", "upgrade_screen", "pause_screen", "menu_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,8 +79,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_je8vx")
+script = ExtResource("2_7l1m5")
+hud = NodePath("HUD")
+hud_health_bar = NodePath("HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar")
+hud_exp_bar = NodePath("HUD/MarginContainer/ExpBar")
+upgrade_screen = NodePath("UpgradeScreen")
+pause_screen = NodePath("PauseScreen")
+menu_screen = NodePath("MenuScreen")
 
 [node name="HUD" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,7 +120,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="HUD/HBoxContainer/TextureRect/MarginContainer"]
+[node name="HealthBar" type="ProgressBar" parent="HUD/HBoxContainer/TextureRect/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 value = 90.0
@@ -83,7 +130,7 @@ show_percentage = false
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="ProgressBar" type="ProgressBar" parent="HUD/MarginContainer"]
+[node name="ExpBar" type="ProgressBar" parent="HUD/MarginContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_7l1m5")
@@ -91,6 +138,7 @@ value = 90.0
 show_percentage = false
 
 [node name="UpgradeScreen" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,14 +146,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_je8vx")
-
-[node name="TextureRect" type="TextureRect" parent="UpgradeScreen"]
-layout_mode = 2
-offset_right = 2304.0
-offset_bottom = 1296.0
-scale = Vector2(0.997756, 0.997926)
-texture = SubResource("GradientTexture1D_v05fi")
-expand_mode = 1
 
 [node name="PauseMenuPanel" type="Panel" parent="UpgradeScreen"]
 layout_mode = 1
@@ -170,3 +210,156 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_je8vx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen"]
+custom_minimum_size = Vector2(700, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseScreen/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=100]Game Paused"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PauseResume" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Resume"
+
+[node name="PauseOptions" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Options"
+
+[node name="PauseControls" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Controls"
+
+[node name="PauseQuit" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Quit"
+
+[node name="MenuScreen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_je8vx")
+
+[node name="TextureRect" type="TextureRect" parent="MenuScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_7l1m5")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuScreen"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -318.0
+offset_right = 720.0
+offset_bottom = 318.0
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuScreen/MarginContainer"]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuScreen/MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=150]It Gets [shake][color=red]WORSE"
+fit_content = true
+vertical_alignment = 2
+
+[node name="MenuContinue" type="Button" parent="MenuScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Continue Previous Game"
+alignment = 0
+
+[node name="MenuOptions" type="Button" parent="MenuScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Options"
+alignment = 0
+
+[node name="MenuControls" type="Button" parent="MenuScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Controls"
+alignment = 0
+
+[node name="MenuQuit" type="Button" parent="MenuScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Quit"
+alignment = 0
+
+[connection signal="pressed" from="PauseScreen/VBoxContainer/PauseResume" to="." method="_on_pause_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/PauseOptions" to="." method="_on_pause_options_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/PauseControls" to="." method="_on_pause_controls_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/PauseQuit" to="." method="_on_pause_quit_pressed"]
+[connection signal="pressed" from="MenuScreen/MarginContainer/VBoxContainer/MenuContinue" to="." method="_on_menu_continue_pressed"]
+[connection signal="pressed" from="MenuScreen/MarginContainer/VBoxContainer/MenuOptions" to="." method="_on_menu_options_pressed"]
+[connection signal="pressed" from="MenuScreen/MarginContainer/VBoxContainer/MenuControls" to="." method="_on_menu_controls_pressed"]
+[connection signal="pressed" from="MenuScreen/MarginContainer/VBoxContainer/MenuQuit" to="." method="_on_menu_quit_pressed"]
