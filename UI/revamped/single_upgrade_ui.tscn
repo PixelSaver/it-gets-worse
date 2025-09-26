@@ -38,7 +38,6 @@ corner_radius_bottom_left = 20
 corner_detail = 5
 
 [node name="Upgrade" type="Panel" node_paths=PackedStringArray("title", "image", "description")]
-custom_minimum_size = Vector2(300, 600)
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xpiot")
