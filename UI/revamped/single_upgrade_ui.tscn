@@ -1,19 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://jxg7bsdw0qv4"]
+[gd_scene load_steps=7 format=3 uid="uid://jxg7bsdw0qv4"]
 
 [ext_resource type="Script" uid="uid://f3haa0551yt7" path="res://UI/revamped/single_upgrade_ui.gd" id="1_808wt"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="1_fb6df"]
-[ext_resource type="Script" uid="uid://ctehemryuklbu" path="res://Upgrades/damage_bullet_strategy.gd" id="2_808wt"]
+[ext_resource type="Resource" uid="uid://cstb5ou0pu5qm" path="res://Upgrades/Resources/ricochet_bullet.tres" id="2_808wt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpiot"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Resource" id="Resource_1ndba"]
-script = ExtResource("2_808wt")
-attack_multiplier = 1.2
-texture = ExtResource("1_fb6df")
-upgrade_text = "Speed"
-upgrade_description = ""
-metadata/_custom_type_script = "uid://ctehemryuklbu"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v05fi"]
 content_margin_left = 4.0
@@ -52,7 +44,7 @@ script = ExtResource("1_808wt")
 title = NodePath("Button/MarginContainer/VBoxContainer/RichTextLabel")
 image = NodePath("Button/MarginContainer/VBoxContainer/MarginContainer/TextureRect")
 description = NodePath("Button/MarginContainer/VBoxContainer/RichTextLabel3")
-stored_upgrade = SubResource("Resource_1ndba")
+stored_upgrade = ExtResource("2_808wt")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -117,7 +109,7 @@ stretch_mode = 4
 [node name="RichTextLabel3" type="RichTextLabel" parent="Button/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 40
 text = "usdjfkjsdfjskdjflksjdflksjdlfksdfsdfsdfskdjfsdfasldkfjlasdfsdfsdf"
 fit_content = true
 horizontal_alignment = 1
