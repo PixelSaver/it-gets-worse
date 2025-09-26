@@ -1,7 +1,7 @@
 extends Panel
 class_name SingleUIUpgrade
 
-signal pressed(upgrade:BaseStrategy)
+signal pressed()
 
 @onready var button: Button = $Button
 
@@ -30,6 +30,8 @@ var upgrade_description : String :
 		upgrade_description = value
 		description.append_text(value)
 
+func _ready() -> void:
+	call_deferred("connect_button")
 
 func _update_ui():
 	if not stored_upgrade:
@@ -44,9 +46,11 @@ func _update_ui():
 		description.append_text(stored_upgrade.upgrade_description)
 		
 func _on_pressed() -> void:
-	pressed.emit(stored_upgrade)
+	pressed.emit()
 	Global.player.add_upgrade(stored_upgrade)
-	
+
+func connect_button():
+	button.connect("pressed", _on_pressed)
 	
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed:

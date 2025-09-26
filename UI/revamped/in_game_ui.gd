@@ -15,7 +15,7 @@ func _ready():
 	Global.in_game_ui = self
 
 func update_exp_bar(new_value:float, new_max_value:float):
-	if hud_exp_bar.max_value == new_max_value:
+	if new_value > hud_exp_bar.value and hud_exp_bar.max_value == new_max_value:
 		var tween = create_tween()
 		tween.tween_property(hud_exp_bar, "value", new_value, 1)
 		tween.set_trans(Tween.TRANS_QUINT)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnbmr6e8l23qx"]
+[gd_scene load_steps=12 format=3 uid="uid://cnbmr6e8l23qx"]
 
 [ext_resource type="Theme" uid="uid://ci6s48yvpipim" path="res://UI/revamped/custom_theme.tres" id="1_je8vx"]
 [ext_resource type="Script" uid="uid://dk854470qyy57" path="res://UI/revamped/in_game_ui.gd" id="2_7l1m5"]
@@ -16,11 +16,6 @@ bg_color = Color(0.345119, 0.68631, 0.432044, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je8vx"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.521569)
-
-[sub_resource type="GDScript" id="GDScript_7l1m5"]
-script/source = "extends Panel
-class_name UpgradeScreen
-"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja3hb"]
 bg_color = Color(0.10748, 0.10748, 0.10748, 1)
@@ -84,7 +79,6 @@ upgrade_container = NodePath("UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBo
 pause_screen = NodePath("PauseScreen")
 
 [node name="HUD" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,12 +125,13 @@ vertical_alignment = 1
 [node name="Separator" type="Control" parent="HUD/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_ja3hb")
 
@@ -171,6 +166,7 @@ value = 90.0
 show_percentage = false
 
 [node name="UpgradeScreen" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -180,7 +176,6 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_je8vx")
-script = SubResource("GDScript_7l1m5")
 
 [node name="PauseMenuPanel" type="Panel" parent="UpgradeScreen"]
 layout_mode = 1

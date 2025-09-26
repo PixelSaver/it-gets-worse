@@ -110,4 +110,7 @@ layer = 2
 
 [node name="InGameUI" parent="NewUI" instance=ExtResource("15_k12tt")]
 
+[connection signal="health_changed" from="Player/HealthComponent" to="NewUI/InGameUI" method="_on_health_component_health_changed"]
+[connection signal="exp_changed" from="Player/ExperienceComponent" to="NewUI/InGameUI" method="_on_experience_component_exp_changed"]
 [connection signal="level_up" from="Player/ExperienceComponent" to="UpgradeManager" method="_on_experience_component_level_up"]
+[connection signal="timer_update" from="GameTimer" to="NewUI/InGameUI" method="_on_game_timer_timer_update"]
