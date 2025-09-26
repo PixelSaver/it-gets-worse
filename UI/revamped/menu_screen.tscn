@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0r18e671nboh"]
+[gd_scene load_steps=10 format=3 uid="uid://b0r18e671nboh"]
 
 [ext_resource type="Theme" uid="uid://ci6s48yvpipim" path="res://UI/revamped/custom_theme.tres" id="1_psncv"]
 [ext_resource type="Script" uid="uid://c2e78s20xaa88" path="res://UI/revamped/menu_screen.gd" id="2_t6xur"]
+[ext_resource type="Script" uid="uid://b4i82ys86s6ag" path="res://UI/revamped/tween_component.gd" id="3_786fb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je8vx"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.521569)
@@ -112,6 +113,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
 text = "Continue Previous Game"
 alignment = 0
 
+[node name="TweenComponent" type="Node" parent="MarginContainer/VBoxContainer/MenuContinue"]
+script = ExtResource("3_786fb")
+custom_pivot = Vector2(0, 0.5)
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
+
 [node name="MenuOptions" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
@@ -122,6 +128,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
 text = "Options (does nothing)"
 alignment = 0
 
+[node name="TweenComponent" type="Node" parent="MarginContainer/VBoxContainer/MenuOptions"]
+script = ExtResource("3_786fb")
+custom_pivot = Vector2(0, 0.5)
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
+
 [node name="MenuQuit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
@@ -131,6 +142,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
 text = "Quit"
 alignment = 0
+
+[node name="TweenComponent" type="Node" parent="MarginContainer/VBoxContainer/MenuQuit"]
+script = ExtResource("3_786fb")
+custom_pivot = Vector2(0, 0.5)
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContinue" to="." method="_on_menu_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuOptions" to="." method="_on_menu_options_pressed"]

@@ -3,6 +3,8 @@ class_name SingleUIUpgrade
 
 signal pressed(upgrade:BaseStrategy)
 
+@onready var button: Button = $Button
+
 @export var title: RichTextLabel 
 @export var image: TextureRect 
 @export var description: RichTextLabel 
@@ -28,6 +30,7 @@ var upgrade_description : String :
 		upgrade_description = value
 		description.append_text(value)
 
+
 func _update_ui():
 	if not stored_upgrade:
 		return
@@ -39,9 +42,11 @@ func _update_ui():
 	if description:
 		description.clear()
 		description.append_text(stored_upgrade.upgrade_description)
+		
 func _on_pressed() -> void:
 	pressed.emit(stored_upgrade)
 	Global.player.add_upgrade(stored_upgrade)
+	
 	
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
