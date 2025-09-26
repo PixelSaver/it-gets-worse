@@ -1,0 +1,74 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ci6s48yvpipim"]
+
+[ext_resource type="FontFile" uid="uid://pntlljl77f2n" path="res://UI/revamped/fonts/Poco.ttf" id="1_pq5xj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtfy2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrelq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlrm1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfo6m"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq5xj"]
+bg_color = Color(0.321569, 0.321569, 0.321569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3dbi"]
+bg_color = Color(0.819608, 0.372549, 0.403922, 1)
+
+[resource]
+default_base_scale = 10.0
+default_font = ExtResource("1_pq5xj")
+default_font_size = 80
+Button/styles/focus = SubResource("StyleBoxFlat_wtfy2")
+Button/styles/hover = SubResource("StyleBoxFlat_lrelq")
+Button/styles/pressed = SubResource("StyleBoxFlat_xlrm1")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+Panel/styles/panel = SubResource("StyleBoxFlat_lfo6m")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_pq5xj")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_c3dbi")
+VBoxContainer/constants/separation = 4

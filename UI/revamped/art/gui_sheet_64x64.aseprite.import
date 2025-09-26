@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://doyixmqtug37t"
+path="res://.godot/imported/gui_sheet_64x64.aseprite-ad163b8ad782d7d3c2e22c8be6eb102c.res"
+
+[deps]
+
+source_file="res://UI/revamped/art/gui_sheet_64x64.aseprite"
+dest_files=["res://.godot/imported/gui_sheet_64x64.aseprite-ad163b8ad782d7d3c2e22c8be6eb102c.res"]
+
+[params]
+
