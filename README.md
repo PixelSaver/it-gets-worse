@@ -14,6 +14,9 @@ Move to dodge incoming enemies. (WASD)
 Shoot to survive as long as possible. (Left Click, aim with mouse position)
 Adapt to your random upgrades and overcome the debuffs stacking against you.
 
+## Screenshots
+![Menu Screen](image1.png) ![Gameplay](image2.png) ![Upgrade Menu](image4.png) ![Death Screen](image3.png)
+
 ## Inspiration
 This project draws inspiration from 20 Minutes Till Dawn and Vampire Survivors, reimagined with its own escalating difficulty mechanic.
 
