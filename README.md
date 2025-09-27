@@ -35,6 +35,11 @@ Used impulse functions from [Nesvers](https://github.com/nezvers/Godot-GameTempl
 
 Background art from [Seth's 32 Rogues](https://sethbb.itch.io/32rogues)
 
+Claude helped to write a lot of the Editor Scripts (res://Scripts/Editor Scripts)
+
+ChatGPT helped a lot with the UpgradeManager class (I couldn't figure out how to get it to load on web when it worked fine in editor) 
+upgrade_manager.gd can be found in res://Scripts.
+
 Art from my good friend @OfKnee (not sure how to @ a github account from a readme but there you go)
 
 ## Afterthoughts
