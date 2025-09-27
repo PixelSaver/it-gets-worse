@@ -8,11 +8,22 @@ class_name InGameUI
 @export var upgrade_screen : Control
 @export var upgrade_container : Control
 @export var pause_screen : Control
+@export var death_screen : Control
 
-@onready var single_upgrade_ui_scene : PackedScene = preload("res://UI/revamped/single_upgrade_ui.tscn")
+var single_upgrade_ui_scene : PackedScene 
 
 func _ready():
 	Global.in_game_ui = self
+	
+	single_upgrade_ui_scene = load("res://UI/revamped/single_upgrade_ui.tscn")
+	print_debug("Scene loaded successfully: ", single_upgrade_ui_scene != null)
+	
+	for child in upgrade_container.get_children():
+		child.connect("pressed", Callable(upgrade_hide))
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("escape"):
+		pause_toggle()
 
 func update_exp_bar(new_value:float, new_max_value:float):
 	if new_value > hud_exp_bar.value and hud_exp_bar.max_value == new_max_value:
@@ -38,37 +49,48 @@ signal pause_resume_pressed
 func _on_pause_resume_pressed() -> void:
 	pause_resume_pressed.emit()
 func _on_pause_options_pressed() -> void:
-	option_show()
+	#option_show()
+	pass
 func _on_pause_controls_pressed() -> void:
 	pass # Replace with function body.
 func _on_pause_quit_pressed() -> void:
 	get_tree().quit()
-func pause_show():
-	pass
+func pause_toggle():
+	if pause_screen.visible:
+		pause_screen.hide()
+		pause_screen.release_focus()
+		get_tree().paused = false
+	else:
+		pause_screen.show()
+		pause_screen.grab_focus()
+		get_tree().paused = true
 
 
-# Option Buttons
-func option_show():
-	pass
+# Death Buttons
+func _on_death_restart_pressed() -> void:
+	var main_scene = load("res://Scenes/main.tscn")
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(main_scene)
+func _on_death_quit_pressed() -> void:
+	get_tree().quit()
+
 
 func death_show():
-	pass
+	death_screen.show()
+	death_screen.grab_focus()
+	get_tree().paused = true
 
 func show_upgrade(arr:Array[BaseStrategy]):
 	upgrade_screen.show()
 	upgrade_screen.grab_focus()
 	get_tree().paused = true
 	
-	for child in upgrade_container.get_children():
-		child.queue_free()
+	var children = upgrade_container.get_children()
+	var rand_upgrades = Global.upgrade_manager.pick_random(children.size())
+	for i in range(children.size()):
+		var ui_upgrade = children[i] as SingleUIUpgrade
+		ui_upgrade.stored_upgrade = rand_upgrades[i]
 	
-	for i in range(0,arr.size()):
-		var curr_upgrade = arr[i] as BaseStrategy
-		var curr_upgrade_ui_scene = single_upgrade_ui_scene.instantiate() as SingleUIUpgrade
-		upgrade_container.add_child(curr_upgrade_ui_scene)
-		curr_upgrade_ui_scene.stored_upgrade = curr_upgrade
-		
-		curr_upgrade_ui_scene.connect("pressed", Callable(upgrade_hide))
 
 func upgrade_hide():
 	upgrade_screen.hide()

@@ -80,7 +80,6 @@ func get_impulse(current_velocity:Vector2, target_velocity:Vector2, acceleration
 	return (_direction * _ratio)
 	
 func kill():
-	#Global.ui.death_menu.open()
 	Global.in_game_ui.death_show()
 	pass
 	

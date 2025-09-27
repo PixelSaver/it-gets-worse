@@ -5,6 +5,8 @@ signal pressed()
 
 @onready var button: Button = $Button
 
+@export var tween_component : TweenComponent
+
 @export var title: RichTextLabel 
 @export var image: TextureRect 
 @export var description: RichTextLabel 
@@ -52,6 +54,3 @@ func _on_pressed() -> void:
 func connect_button():
 	button.connect("pressed", _on_pressed)
 	
-func _gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		print("Button _gui_input got:", event)

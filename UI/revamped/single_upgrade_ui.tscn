@@ -37,11 +37,12 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 5
 
-[node name="Upgrade" type="Panel" node_paths=PackedStringArray("title", "image", "description")]
+[node name="Upgrade" type="Panel" node_paths=PackedStringArray("tween_component", "title", "image", "description")]
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xpiot")
 script = ExtResource("1_808wt")
+tween_component = NodePath("Button/TweenComponent")
 title = NodePath("Button/MarginContainer/VBoxContainer/RichTextLabel")
 image = NodePath("Button/MarginContainer/VBoxContainer/MarginContainer/TextureRect")
 description = NodePath("Button/MarginContainer/VBoxContainer/RichTextLabel3")
@@ -53,6 +54,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.997171)

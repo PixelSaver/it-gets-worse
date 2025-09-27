@@ -5,15 +5,19 @@ extends Node
 @export var size_mult : float = 1.1
 @export var parameter_to_tween : String = "scale"
 ## From [0,1] offsets, like a texture uv!
-@export var custom_pivot : Vector2 = Vector2.ONE / 2
+@export var custom_pivot : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+	get_viewport().size_changed.connect(set_size)
 	get_parent().connect("mouse_entered", _on_node_hovered)
 	get_parent().connect("mouse_exited", _on_node_unhovered)
 	call_deferred("set_size")
 
 func set_size():
-	control_node.pivot_offset = custom_pivot * control_node.size
+	if custom_pivot == Vector2.ZERO:
+		control_node.pivot_offset = control_node.size / 2
+	else:
+		control_node.pivot_offset = control_node.size * custom_pivot
 
 func _on_node_hovered() -> void:
 	tween_node_scale(size_mult)
