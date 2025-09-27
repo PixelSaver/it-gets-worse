@@ -13,6 +13,7 @@ Web version on [my itch](https://pixelsaver.itch.io/it-gets-worse) (or build it 
 Move to dodge incoming enemies. (WASD)
 Shoot to survive as long as possible. (Left Click, aim with mouse position)
 Adapt to your random upgrades and overcome the debuffs stacking against you.
+** Pause menu only works in non-web version, since itch.io steals the esc key input. Oops.
 
 ## Screenshots
 ![Menu Screen](image1.png) ![Gameplay](image2.png) ![Upgrade Menu](image4.png) ![Death Screen](image3.png)
