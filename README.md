@@ -25,9 +25,13 @@ Spent 2 days learning the UI in Godot, and I'm looking forward to working with i
 
 ## Credits
 Created for [Hackclub Siege](https://siege.hackclub.com)
+
 Used [Godot Open Source Engine](https://github.com/godotengine) (its amazing)
+
 Used impulse functions from [Nesvers](https://github.com/nezvers/Godot-GameTemplate/)
+
 Background art from [Seth's 32 Rogues](https://sethbb.itch.io/32rogues)
+
 Art from my good friend @OfKnee (not sure how to @ a github account from a readme but there you go)
 
 ## Afterthoughts
