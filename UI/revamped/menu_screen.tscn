@@ -98,7 +98,7 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 theme_override_colors/default_color = Color(0.479834, 0.479834, 0.479834, 1)
 theme_override_font_sizes/normal_font_size = 60
-text = "Welcome to It Gets Worse, where you start out with random upgrades and have to survive as the game slowly makes you worse. All while more enemies spawn. Good luck!"
+text = "Welcome to It Gets Worse, where you start out with random upgrades and have to survive as the game slowly hands you debuffs. All while more enemies spawn. Good luck!"
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

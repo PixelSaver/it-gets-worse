@@ -78,7 +78,7 @@ func _on_death_quit_pressed() -> void:
 
 
 func death_show():
-	death_score.text = "Score: %s" % str(Global.game_timer)
+	death_score.text = "Score: %s" % str(snappedf(Global.game_timer.total_time,0.001))
 	death_enemies.text = "Enemies Killed: %s" % str(Global.enemies_killed)
 	death_screen.show()
 	death_screen.grab_focus()

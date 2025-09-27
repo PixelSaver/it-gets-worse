@@ -461,7 +461,7 @@ theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1
 theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
-text = "Re-continue your 'old' game"
+text = "Try Again"
 
 [node name="TweenComponent" type="Node" parent="DeathScreen/VBoxContainer/DeathRestart"]
 script = ExtResource("4_xpiot")
