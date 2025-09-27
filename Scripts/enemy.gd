@@ -64,7 +64,6 @@ func kill():
 	is_dead = true
 	call_deferred("disable_collision")
 	anime.play("death")
-	hitbox_component.is_dead = true
 	Global.enemy_list.erase(self)
 	Global.enemies_killed += 1
 	

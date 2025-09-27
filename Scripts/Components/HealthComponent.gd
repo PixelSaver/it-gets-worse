@@ -72,10 +72,11 @@ func _process_damage_queue():
 	processing_damage = false
 
 func start_invulnerability():
-	if not is_invulnerable or not invulnerability_duration == null:
-		is_invulnerable = true
-		invulnerability_timer.start()
-		invulnerability_started.emit()
+	if is_invulnerable or invulnerability_timer == null or invulnerability_duration == 0: return
+	
+	is_invulnerable = true
+	invulnerability_timer.start()
+	invulnerability_started.emit()
 
 func _on_invulnerability_timeout():
 	is_invulnerable = false
@@ -83,6 +84,7 @@ func _on_invulnerability_timeout():
 
 
 func get_is_invulnerable() -> bool:
+	if invulnerability_timer == null or invulnerability_duration == 0: return false
 	return is_invulnerable
 
 ## Takes in a multiplier to affect max health proportionally
