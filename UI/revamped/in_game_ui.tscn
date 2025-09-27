@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnbmr6e8l23qx"]
+[gd_scene load_steps=15 format=3 uid="uid://cnbmr6e8l23qx"]
 
 [ext_resource type="Theme" uid="uid://ci6s48yvpipim" path="res://UI/revamped/custom_theme.tres" id="1_je8vx"]
 [ext_resource type="Script" uid="uid://dk854470qyy57" path="res://UI/revamped/in_game_ui.gd" id="2_7l1m5"]
 [ext_resource type="PackedScene" uid="uid://jxg7bsdw0qv4" path="res://UI/revamped/single_upgrade_ui.tscn" id="2_ja3hb"]
+[ext_resource type="Script" uid="uid://dre4rvjfsiolh" path="res://UI/revamped/health_bar.gd" id="3_v05fi"]
 [ext_resource type="Script" uid="uid://b4i82ys86s6ag" path="res://UI/revamped/tween_component.gd" id="4_xpiot"]
 
 [sub_resource type="Gradient" id="Gradient_je8vx"]
@@ -64,7 +65,7 @@ corner_detail = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0np8"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.662745)
 
-[node name="InGameUI" type="Control" node_paths=PackedStringArray("hud", "hud_health_bar", "hud_exp_bar", "hud_score", "upgrade_screen", "upgrade_container", "pause_screen", "death_screen")]
+[node name="InGameUI" type="Control" node_paths=PackedStringArray("hud", "hud_health_bar", "hud_exp_bar", "hud_score", "upgrade_screen", "upgrade_container", "pause_screen", "death_screen", "death_score", "death_enemies")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,12 +83,18 @@ upgrade_screen = NodePath("UpgradeScreen")
 upgrade_container = NodePath("UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBoxContainer/UpgradeChoicesContainer")
 pause_screen = NodePath("PauseScreen")
 death_screen = NodePath("DeathScreen")
+death_score = NodePath("DeathScreen/VBoxContainer/Separator/HBoxContainer/MarginContainer/ScoreLabel")
+death_enemies = NodePath("DeathScreen/VBoxContainer/Separator/HBoxContainer/MarginContainer2/EnemiesLabel")
 
 [node name="HUD" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 30.0
+offset_right = -2.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -150,12 +157,32 @@ grow_vertical = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 
-[node name="HealthBar" type="ProgressBar" parent="HUD/HBoxContainer/TextureRect/MarginContainer"]
+[node name="HealthBar" type="ProgressBar" parent="HUD/HBoxContainer/TextureRect/MarginContainer" node_paths=PackedStringArray("label")]
 layout_mode = 2
 size_flags_vertical = 1
 mouse_filter = 2
-value = 90.0
+value = 100.0
 show_percentage = false
+script = ExtResource("3_v05fi")
+label = NodePath("HealthTextMargin/HealthText")
+
+[node name="HealthTextMargin" type="MarginContainer" parent="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HealthText" type="RichTextLabel" parent="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar/HealthTextMargin"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "Heyo"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD"]
 layout_mode = 2
@@ -167,7 +194,6 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_7l1m5")
-value = 90.0
 show_percentage = false
 
 [node name="UpgradeScreen" type="Panel" parent="."]
@@ -387,6 +413,46 @@ vertical_alignment = 2
 
 [node name="Separator" type="Control" parent="DeathScreen/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="DeathScreen/VBoxContainer/Separator"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.3
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="DeathScreen/VBoxContainer/Separator/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -40
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ScoreLabel" type="RichTextLabel" parent="DeathScreen/VBoxContainer/Separator/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.9387, 0.495228, 0.499956, 1)
+text = "Score: 10.4"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="DeathScreen/VBoxContainer/Separator/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -40
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="EnemiesLabel" type="RichTextLabel" parent="DeathScreen/VBoxContainer/Separator/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.9387, 0.495228, 0.499956, 1)
+text = "Enemies killed: 10"
+fit_content = true
 
 [node name="DeathRestart" type="Button" parent="DeathScreen/VBoxContainer"]
 layout_mode = 2
@@ -395,7 +461,7 @@ theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1
 theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
-text = "Re-continue your 'old' game"
+text = "Try Again"
 
 [node name="TweenComponent" type="Node" parent="DeathScreen/VBoxContainer/DeathRestart"]
 script = ExtResource("4_xpiot")
@@ -415,6 +481,8 @@ script = ExtResource("4_xpiot")
 custom_pivot = Vector2(0.5, 0.5)
 metadata/_custom_type_script = "uid://b4i82ys86s6ag"
 
+[connection signal="changed" from="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar" to="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar" method="_on_changed"]
+[connection signal="value_changed" from="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar" to="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar" method="_on_value_changed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/PauseResume" to="." method="_on_pause_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/PauseOptions" to="." method="_on_pause_options_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/PauseControls" to="." method="_on_pause_controls_pressed"]

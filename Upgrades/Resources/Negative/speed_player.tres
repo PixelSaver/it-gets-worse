@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_u3gkk")
-speed_multiplier = 1.2
+speed_multiplier = 0.8
 texture = ExtResource("2_u3gkk")
 upgrade_text = "Player Speed"
-upgrade_description = "Makes player run 20% faster"
+upgrade_description = "Makes player run 20% slower"

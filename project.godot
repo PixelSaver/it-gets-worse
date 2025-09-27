@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="It Gets Worse"
+config/description="It Gets WORSE is a fast-paced 2D survival shooter inspired by 20 Minutes Till Dawn and Vampire Survivors. The twist: you start with random upgrades, but as time passes the game steadily hands you debuffs. Enemies keep coming, the challenge ramps up, and survival becomes harder with every second."
+config/version="5"
 run/main_scene="uid://b0r18e671nboh"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://Assets/icon.svg"
+boot_splash/image="uid://b3kavbxd654a1"
+config/icon="uid://dn8mly03h8g8b"
 
 [autoload]
 

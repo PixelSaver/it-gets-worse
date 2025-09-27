@@ -1,16 +1,25 @@
 extends Node2D
 class_name UpgradeManager
 
-var all_upgrades : Array[BaseStrategy] = [
-	preload("res://Upgrades/Resources/damage_bullet.tres"),
-	preload("res://Upgrades/Resources/health_player.tres"),
-	preload("res://Upgrades/Resources/multishot_player.tres"),
-	preload("res://Upgrades/Resources/pierce_bullet.tres"),
-	preload("res://Upgrades/Resources/ricochet_bullet.tres"),
-	preload("res://Upgrades/Resources/size_down_bullet.tres"),
-	preload("res://Upgrades/Resources/size_up_bullet.tres"),
-	preload("res://Upgrades/Resources/speed_bullet.tres"),
-	preload("res://Upgrades/Resources/speed_player.tres"),
+var all_positive_upgrades : Array[BaseStrategy] = [
+	preload("res://Upgrades/Resources/Positive/damage_bullet.tres"),
+	preload("res://Upgrades/Resources/Positive/health_player.tres"),
+	preload("res://Upgrades/Resources/Positive/multishot_player.tres"),
+	preload("res://Upgrades/Resources/Positive/pierce_bullet.tres"),
+	preload("res://Upgrades/Resources/Positive/ricochet_bullet.tres"),
+	preload("res://Upgrades/Resources/Positive/size_bullet.tres"),
+	preload("res://Upgrades/Resources/Positive/speed_bullet.tres"),
+	preload("res://Upgrades/Resources/Positive/speed_player.tres"),
+]
+var all_negative_upgrades : Array[BaseStrategy] = [
+	preload("res://Upgrades/Resources/Negative/damage_bullet.tres"),
+	preload("res://Upgrades/Resources/Negative/health_player.tres"),
+	preload("res://Upgrades/Resources/Negative/multishot_player.tres"),
+	preload("res://Upgrades/Resources/Negative/pierce_bullet.tres"),
+	preload("res://Upgrades/Resources/Negative/ricochet_bullet.tres"),
+	preload("res://Upgrades/Resources/Negative/size_bullet.tres"),
+	preload("res://Upgrades/Resources/Negative/speed_bullet.tres"),
+	preload("res://Upgrades/Resources/Negative/speed_player.tres"),
 ]
 
 func load_all_upgrades(path: String) -> Array[BaseStrategy]:
@@ -35,20 +44,25 @@ func _ready():
 	if OS.get_name() == "Web":
 		print_debug("Using preloaded upgrades for web build")
 		# all_upgrades is already populated from the preload array above
-		print_debug("Preloaded upgrades count: ", all_upgrades.size())
+		print_debug("Preloaded upgrades count: ", all_positive_upgrades.size())
 	else:
 		# Dynamic loading for non-web build
-		var dynamically_loaded = load_all_upgrades_fallback("res://Upgrades/Resources")
+		var dynamically_loaded = load_all_upgrades_fallback("res://Upgrades/Resources/Positive")
 		if dynamically_loaded.size() > 0:
-			all_upgrades = dynamically_loaded
+			all_positive_upgrades = dynamically_loaded
+	
+	
+	# For web builds, use preloaded resources
+	if OS.get_name() == "Web":
+		print_debug("Using preloaded upgrades for web build")
+		# all_upgrades is already populated from the preload array above
+		print_debug("Preloaded upgrades count: ", all_negative_upgrades.size())
+	else:
+		# Dynamic loading for non-web build
+		var dynamically_loaded = load_all_upgrades_fallback("res://Upgrades/Resources/Negative")
+		if dynamically_loaded.size() > 0:
+			all_negative_upgrades = dynamically_loaded
 		
-	# Verify upgrades loaded
-	#print_debug("Final upgrade count: ", all_upgrades.size())
-	#for i in range(all_upgrades.size()):
-		#if all_upgrades[i] == null:
-			#print_debug("WARNING: Upgrade at index ", i, " is null")
-		#else:
-			#print_debug("Upgrade ", i, ": ", all_upgrades[i].resource_path if all_upgrades[i].resource_path else "no path")
 
 func load_all_upgrades_fallback(path: String) -> Array[BaseStrategy]:
 	var upgrades: Array[BaseStrategy] = []
@@ -73,11 +87,15 @@ func load_all_upgrades_fallback(path: String) -> Array[BaseStrategy]:
 	return upgrades
 
 
-func pick_random(iter:int) -> Array[BaseStrategy]:
+func pick_random(iter:int, is_positive:bool=false) -> Array[BaseStrategy]:
 	var out :Array[BaseStrategy] = []
+	var test_arr : Array[BaseStrategy]
+	if is_positive: test_arr = all_positive_upgrades
+	else: test_arr = all_negative_upgrades
+	
 	for i in range(iter):
 		out.append(
-			all_upgrades[randi_range(0,all_upgrades.size()-1)]
+			test_arr[randi_range(0,test_arr.size()-1)]
 		)
 	return out
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://f3haa0551yt7" path="res://UI/revamped/single_upgrade_ui.gd" id="1_808wt"]
 [ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="1_fb6df"]
-[ext_resource type="Resource" uid="uid://c7q8co54u36hu" path="res://Upgrades/Resources/multishot_player.tres" id="2_808wt"]
+[ext_resource type="Resource" uid="uid://c7q8co54u36hu" path="res://Upgrades/Resources/Negative/multishot_player.tres" id="2_808wt"]
 [ext_resource type="Script" uid="uid://b4i82ys86s6ag" path="res://UI/revamped/tween_component.gd" id="4_1ndba"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpiot"]
@@ -120,3 +120,4 @@ vertical_alignment = 2
 
 [node name="TweenComponent" type="Node" parent="Button"]
 script = ExtResource("4_1ndba")
+custom_pivot = Vector2(0.5, 0.5)

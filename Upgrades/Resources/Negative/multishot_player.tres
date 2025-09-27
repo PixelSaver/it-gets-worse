@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_5sapv")
-multishot_increase = 1.0
+multishot_increase = -1.0
 texture = ExtResource("2_5sapv")
 upgrade_text = "Multishot"
-upgrade_description = "Shoots 1 more bullet"
+upgrade_description = "Shoots 1 less bullet per shot"
