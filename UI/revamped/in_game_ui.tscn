@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnbmr6e8l23qx"]
+[gd_scene load_steps=15 format=3 uid="uid://cnbmr6e8l23qx"]
 
 [ext_resource type="Theme" uid="uid://ci6s48yvpipim" path="res://UI/revamped/custom_theme.tres" id="1_je8vx"]
 [ext_resource type="Script" uid="uid://dk854470qyy57" path="res://UI/revamped/in_game_ui.gd" id="2_7l1m5"]
 [ext_resource type="PackedScene" uid="uid://jxg7bsdw0qv4" path="res://UI/revamped/single_upgrade_ui.tscn" id="2_ja3hb"]
+[ext_resource type="Script" uid="uid://dre4rvjfsiolh" path="res://UI/revamped/health_bar.gd" id="3_v05fi"]
 [ext_resource type="Script" uid="uid://b4i82ys86s6ag" path="res://UI/revamped/tween_component.gd" id="4_xpiot"]
 
 [sub_resource type="Gradient" id="Gradient_je8vx"]
@@ -154,12 +155,32 @@ grow_vertical = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 
-[node name="HealthBar" type="ProgressBar" parent="HUD/HBoxContainer/TextureRect/MarginContainer"]
+[node name="HealthBar" type="ProgressBar" parent="HUD/HBoxContainer/TextureRect/MarginContainer" node_paths=PackedStringArray("label")]
 layout_mode = 2
 size_flags_vertical = 1
 mouse_filter = 2
 value = 100.0
 show_percentage = false
+script = ExtResource("3_v05fi")
+label = NodePath("HealthTextMargin/HealthText")
+
+[node name="HealthTextMargin" type="MarginContainer" parent="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HealthText" type="RichTextLabel" parent="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar/HealthTextMargin"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "Heyo"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD"]
 layout_mode = 2
@@ -418,6 +439,8 @@ script = ExtResource("4_xpiot")
 custom_pivot = Vector2(0.5, 0.5)
 metadata/_custom_type_script = "uid://b4i82ys86s6ag"
 
+[connection signal="changed" from="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar" to="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar" method="_on_changed"]
+[connection signal="value_changed" from="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar" to="HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar" method="_on_value_changed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/PauseResume" to="." method="_on_pause_resume_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/PauseOptions" to="." method="_on_pause_options_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/PauseControls" to="." method="_on_pause_controls_pressed"]
