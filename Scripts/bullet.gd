@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
 		var health = area as HitboxComponent
-		if health.is_dead == true: return
 		if health in hit_enemies: return  # This bullet already hit this enemy
 		
 		hit_enemies.append(health)
@@ -48,5 +47,4 @@ func _on_area_entered(area: Area2D) -> void:
 			else: 
 				queue_free()
 func _apply_damage(health: HitboxComponent):
-	if health.is_dead == true: return
 	health.damage(stored_attack)

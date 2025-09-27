@@ -25,4 +25,4 @@ func update_exp(additional_exp:float):
 	exp_changed.emit(experience, max_exp)
 
 func calc_max_exp(new_level:int):
-	return 40 * exp(-float(new_level) / 50) + 1
+	return 10 + pow(float(new_level), 2)

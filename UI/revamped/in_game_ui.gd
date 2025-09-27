@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 func update_exp_bar(new_value:float, new_max_value:float):
 	if new_value > hud_exp_bar.value and hud_exp_bar.max_value == new_max_value:
 		var tween = create_tween()
-		tween.tween_property(hud_exp_bar, "value", new_value, 1)
+		tween.tween_property(hud_exp_bar, "value", new_value, .3)
 		tween.set_trans(Tween.TRANS_QUINT)
 	else:
 		hud_exp_bar.max_value = new_max_value
@@ -36,7 +36,7 @@ func update_exp_bar(new_value:float, new_max_value:float):
 func update_health_bar(new_value:float, new_max_value:float):
 	if hud_health_bar.max_value == new_max_value:
 		var tween = create_tween()
-		tween.tween_property(hud_health_bar, "value", new_value, 1)
+		tween.tween_property(hud_health_bar, "value", new_value, .3)
 		tween.set_trans(Tween.TRANS_QUINT)
 	else:
 		hud_health_bar.max_value = new_max_value

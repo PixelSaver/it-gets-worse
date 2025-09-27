@@ -65,12 +65,12 @@ position_smoothing_speed = 10.0
 script = ExtResource("3_jjvhh")
 
 [node name="HealthComponent" parent="Player" instance=ExtResource("4_6bp64")]
+invulnerability_duration = 0.3
 
 [node name="HitboxComponent" parent="Player" node_paths=PackedStringArray("health_component") groups=["Player"] instance=ExtResource("5_344ge")]
 collision_layer = 3
 collision_mask = 3
 health_component = NodePath("../HealthComponent")
-invulnerability_timer = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HitboxComponent"]
 shape = SubResource("CircleShape2D_ynf5e")
@@ -112,5 +112,6 @@ layer = 2
 
 [connection signal="health_changed" from="Player/HealthComponent" to="NewUI/InGameUI" method="_on_health_component_health_changed"]
 [connection signal="exp_changed" from="Player/ExperienceComponent" to="NewUI/InGameUI" method="_on_experience_component_exp_changed"]
+[connection signal="level_up" from="Player/ExperienceComponent" to="EnemySpawner" method="_on_experience_component_level_up"]
 [connection signal="level_up" from="Player/ExperienceComponent" to="UpgradeManager" method="_on_experience_component_level_up"]
 [connection signal="timer_update" from="GameTimer" to="NewUI/InGameUI" method="_on_game_timer_timer_update"]
