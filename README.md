@@ -35,6 +35,11 @@ Used impulse functions from [Nesvers](https://github.com/nezvers/Godot-GameTempl
 
 Background art from [Seth's 32 Rogues](https://sethbb.itch.io/32rogues)
 
+Thanks to Viniciusgerevini for their [aseprite wizard addon](https://github.com/viniciusgerevini/godot-aseprite-wizard)
+Thanks to BudzioT for their [super wakatime addon](https://github.com/BudzioT/Godot_Super-Wakatime)
+
+Thanks to [Bitlytic](https://github.com/Bitlytic) for his [video on composition](https://www.youtube.com/watch?v=74y6zWZfQKk
+
 Claude helped to write a lot of the Editor Scripts (res://Scripts/Editor Scripts)
 
 ChatGPT helped a lot with the UpgradeManager class (I couldn't figure out how to get it to load on web when it worked fine in editor) 
