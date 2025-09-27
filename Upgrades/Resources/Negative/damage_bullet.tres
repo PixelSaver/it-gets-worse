@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_4abje")
-attack_multiplier = 1.2
+attack_multiplier = 0.8
 texture = ExtResource("2_e126g")
 upgrade_text = "Bullet Damage"
-upgrade_description = ""
+upgrade_description = "Decreases bullet damage by 20%"

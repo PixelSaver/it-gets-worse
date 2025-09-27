@@ -11,8 +11,8 @@ var friction : float = 400
 var force := Vector2.ZERO  # Accumulated forces
 # Gun stuff
 @onready var gun : Gun = $Gun
-var player_mag_size
-var player_mag_current
+#var player_mag_size
+#var player_mag_current
 var gun_automatic : bool = true
 var bullet_upgrades : Array[BaseBulletStrategy] = []
 var player_upgrades : Array[BasePlayerStrategy] = []
@@ -27,7 +27,8 @@ func _ready():
 	
 	await get_tree().process_frame
 	for i in range(15):
-		add_upgrade(Global.upgrade_manager.pick_random(1)[0])
+		var up = Global.upgrade_manager.pick_random(1,true)[0]
+		self.add_upgrade(up)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("left_click") and gun_automatic:
@@ -56,13 +57,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	#velocity *= axis_compensation
 	
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#var collider = collision.get_collider()
-		#
-		#if collider is Enemy:
-			#collider.apply_central_impulse(-collision.get_normal() * 3)
-			#self.damage_player(collider.get_atk())
 
 # Impulse functions from https://github.com/nezvers/Godot-GameTemplate/
 ## Adds an impulse to velocity, like a kickback

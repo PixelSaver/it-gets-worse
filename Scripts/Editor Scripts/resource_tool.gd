@@ -6,7 +6,7 @@ const STRING_MOD = ""
 ## Only use this to change to inverse
 const ADDON_MULT = 1
 
-const OUTPUT_DIRECTORY = "res://Upgrades/Strategies"
+const OUTPUT_DIRECTORY = "res://Upgrades/Resources/Positive"
 
 const OUTPUT_EXTENSION = ".tres"
 

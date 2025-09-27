@@ -3,9 +3,11 @@
 @tool
 extends EditorScript
 
+var directory = "res://Upgrades/Resources/Negative"
+
 func _run():
-	print("=== UPGRADE FILES IN res://Upgrades/Resources/ ===")
-	var dir = DirAccess.open("res://Upgrades/Resources/")
+	print("=== UPGRADE FILES IN %d ===" % directory)
+	var dir = DirAccess.open(directory)
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()

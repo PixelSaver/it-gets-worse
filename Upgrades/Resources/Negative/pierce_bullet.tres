@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_8nm0g")
-pierce_increase = 1.0
+pierce_increase = -1.0
 texture = ExtResource("2_0cxqj")
 upgrade_text = "Bullet Pierce"
-upgrade_description = ""
+upgrade_description = "Decreases bullet piercing ability by 1"
