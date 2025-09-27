@@ -30,13 +30,14 @@ func get_closest_enemy(global_position:Vector2)->RigidBody2D:
 			closest_enemy = enemy
 	
 	return closest_enemy
-		
+var enemies_killed : int = 0
 
 # Bullets
 var bullet_cont : BulletContainer
 
 # UI
 var ui : UI
+var in_game_ui : InGameUI
 
 # Upgrades
 var upgrade_manager : UpgradeManager

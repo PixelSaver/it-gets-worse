@@ -1,0 +1,20 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://cxnukxn1lhku7"
+path="res://.godot/imported/bullet bounce.aseprite-8daa4cf93a2e4d2952c5dbb739b1813d.res"
+
+[deps]
+
+source_file="res://Assets/upgrades & debuffs/bullet ricochet/bullet bounce.aseprite"
+dest_files=["res://.godot/imported/bullet bounce.aseprite-8daa4cf93a2e4d2952c5dbb739b1813d.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1

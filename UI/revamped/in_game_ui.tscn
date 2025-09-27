@@ -1,0 +1,423 @@
+[gd_scene load_steps=14 format=3 uid="uid://cnbmr6e8l23qx"]
+
+[ext_resource type="Theme" uid="uid://ci6s48yvpipim" path="res://UI/revamped/custom_theme.tres" id="1_je8vx"]
+[ext_resource type="Script" uid="uid://dk854470qyy57" path="res://UI/revamped/in_game_ui.gd" id="2_7l1m5"]
+[ext_resource type="PackedScene" uid="uid://jxg7bsdw0qv4" path="res://UI/revamped/single_upgrade_ui.tscn" id="2_ja3hb"]
+[ext_resource type="Script" uid="uid://b4i82ys86s6ag" path="res://UI/revamped/tween_component.gd" id="4_xpiot"]
+
+[sub_resource type="Gradient" id="Gradient_je8vx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.321569, 0.321569, 0.321569, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ja3hb"]
+gradient = SubResource("Gradient_je8vx")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l1m5"]
+bg_color = Color(0.345119, 0.68631, 0.432044, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je8vx"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.521569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja3hb"]
+bg_color = Color(0.10748, 0.10748, 0.10748, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5ab1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpiot"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v05fi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0np8"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.662745)
+
+[node name="InGameUI" type="Control" node_paths=PackedStringArray("hud", "hud_health_bar", "hud_exp_bar", "hud_score", "upgrade_screen", "upgrade_container", "pause_screen", "death_screen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_je8vx")
+script = ExtResource("2_7l1m5")
+hud = NodePath("HUD")
+hud_health_bar = NodePath("HUD/HBoxContainer/TextureRect/MarginContainer/HealthBar")
+hud_exp_bar = NodePath("HUD/MarginContainer/ExpBar")
+hud_score = NodePath("HUD/HBoxContainer/Panel/MarginContainer/ScoreLabel")
+upgrade_screen = NodePath("UpgradeScreen")
+upgrade_container = NodePath("UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBoxContainer/UpgradeChoicesContainer")
+pause_screen = NodePath("PauseScreen")
+death_screen = NodePath("DeathScreen")
+
+[node name="HUD" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+alignment = 2
+
+[node name="Panel" type="Panel" parent="HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = -18
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 18
+
+[node name="ScoreLabel" type="RichTextLabel" parent="HUD/HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "Score: "
+scroll_active = false
+autowrap_mode = 1
+vertical_alignment = 1
+
+[node name="Separator" type="Control" parent="HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_ja3hb")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="HealthBar" type="ProgressBar" parent="HUD/HBoxContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 2
+value = 90.0
+show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="ExpBar" type="ProgressBar" parent="HUD/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_7l1m5")
+value = 90.0
+show_percentage = false
+
+[node name="UpgradeScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1152, 648)
+focus_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_je8vx")
+
+[node name="PauseMenuPanel" type="Panel" parent="UpgradeScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.15
+anchor_right = 0.8
+anchor_bottom = 0.85
+offset_left = -1.03412
+offset_top = -0.403152
+offset_right = -1.03418
+offset_bottom = -0.403198
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(691.2, 453.6)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ja3hb")
+
+[node name="UpgradesContainer" type="MarginContainer" parent="UpgradeScreen/PauseMenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(691, 453.5)
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeScreen/PauseMenuPanel/UpgradesContainer"]
+custom_minimum_size = Vector2(2.9, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+text = "Upgrades"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+
+[node name="UpgradeChoicesContainer" type="HBoxContainer" parent="UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="Upgrade" parent="UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBoxContainer/UpgradeChoicesContainer" instance=ExtResource("2_ja3hb")]
+layout_mode = 2
+
+[node name="Upgrade2" parent="UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBoxContainer/UpgradeChoicesContainer" instance=ExtResource("2_ja3hb")]
+layout_mode = 2
+
+[node name="Upgrade3" parent="UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBoxContainer/UpgradeChoicesContainer" instance=ExtResource("2_ja3hb")]
+layout_mode = 2
+
+[node name="PauseScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_je8vx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen"]
+custom_minimum_size = Vector2(700, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseScreen/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=100]Game Paused"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Separator" type="Control" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="PauseResume" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Resume"
+
+[node name="TweenComponent" type="Node" parent="PauseScreen/VBoxContainer/PauseResume"]
+script = ExtResource("4_xpiot")
+custom_pivot = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
+
+[node name="PauseOptions" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Options"
+
+[node name="TweenComponent" type="Node" parent="PauseScreen/VBoxContainer/PauseOptions"]
+script = ExtResource("4_xpiot")
+custom_pivot = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
+
+[node name="PauseControls" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Controls"
+
+[node name="TweenComponent" type="Node" parent="PauseScreen/VBoxContainer/PauseControls"]
+script = ExtResource("4_xpiot")
+custom_pivot = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
+
+[node name="PauseQuit" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Quit"
+
+[node name="TweenComponent" type="Node" parent="PauseScreen/VBoxContainer/PauseQuit"]
+script = ExtResource("4_xpiot")
+custom_pivot = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
+
+[node name="DeathScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0np8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen"]
+custom_minimum_size = Vector2(700, 600)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.3
+anchor_right = 0.8
+anchor_bottom = 0.7
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DeathScreen/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=130]I [color=red][shake]TOLD[/shake][/color] you [wave]. . . "
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Separator" type="Control" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="DeathRestart" type="Button" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Re-continue your 'old' game"
+
+[node name="TweenComponent" type="Node" parent="DeathScreen/VBoxContainer/DeathRestart"]
+script = ExtResource("4_xpiot")
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
+
+[node name="DeathQuit" type="Button" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.447211, 0.862587, 0.909114, 1)
+theme_override_colors/font_pressed_color = Color(0.288942, 0.731361, 0.776561, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5ab1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xpiot")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v05fi")
+text = "Quit"
+
+[node name="TweenComponent" type="Node" parent="DeathScreen/VBoxContainer/DeathQuit"]
+script = ExtResource("4_xpiot")
+custom_pivot = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://b4i82ys86s6ag"
+
+[connection signal="pressed" from="PauseScreen/VBoxContainer/PauseResume" to="." method="_on_pause_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/PauseOptions" to="." method="_on_pause_options_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/PauseControls" to="." method="_on_pause_controls_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/PauseQuit" to="." method="_on_pause_quit_pressed"]
+[connection signal="pressed" from="DeathScreen/VBoxContainer/DeathRestart" to="." method="_on_death_restart_pressed"]
+[connection signal="pressed" from="DeathScreen/VBoxContainer/DeathQuit" to="." method="_on_death_quit_pressed"]

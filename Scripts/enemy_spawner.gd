@@ -2,13 +2,14 @@ extends Node2D
 
 @onready var enemy_scene = preload("res://Scenes/enemy.tscn")
 var enemy_spawn_rate : float = .3
+var spawn_rate_mult : float = 1
 var enemy_spawn_dist : float = 1000
 var time_diff : float = 0
 
 func _process(delta: float) -> void:
 	time_diff += delta
-	if (time_diff / (enemy_spawn_rate) > 1):
-		time_diff -= enemy_spawn_rate
+	if (time_diff / (enemy_spawn_rate * spawn_rate_mult) > 1):
+		time_diff -= enemy_spawn_rate * spawn_rate_mult
 		spawn_enemy()
 	
 func spawn_enemy():
@@ -18,3 +19,7 @@ func spawn_enemy():
 	var curr_enemy = enemy_scene.instantiate()
 	curr_enemy.global_position = Global.player.global_position + Global.player.velocity + rand_dir * enemy_spawn_dist
 	add_child(curr_enemy)
+
+
+func _on_experience_component_level_up(new_level: int) -> void:
+	spawn_rate_mult = exp(-float(new_level)/10)

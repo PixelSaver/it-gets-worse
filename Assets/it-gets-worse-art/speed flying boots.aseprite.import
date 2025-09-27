@@ -1,0 +1,20 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://bi2h1d61kloma"
+path="res://.godot/imported/speed flying boots.aseprite-6f99759bca52cfe09281158356ae0785.res"
+
+[deps]
+
+source_file="res://Assets/it-gets-worse-art/speed flying boots.aseprite"
+dest_files=["res://.godot/imported/speed flying boots.aseprite-6f99759bca52cfe09281158356ae0785.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1

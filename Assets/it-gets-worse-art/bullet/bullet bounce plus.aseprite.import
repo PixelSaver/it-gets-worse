@@ -1,0 +1,20 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://bfi7jq6fidcyg"
+path="res://.godot/imported/bullet bounce plus.aseprite-18a5b8ada2d2bbd20a341d90b088879c.res"
+
+[deps]
+
+source_file="res://Assets/it-gets-worse-art/bullet/bullet bounce plus.aseprite"
+dest_files=["res://.godot/imported/bullet bounce plus.aseprite-18a5b8ada2d2bbd20a341d90b088879c.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1

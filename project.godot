@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="It Gets Worse"
-run/main_scene="uid://bjikkp21uyvjf"
+run/main_scene="uid://b0r18e671nboh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
@@ -26,7 +26,7 @@ window/size/viewport_height=1296
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
 [file_customization]
 
@@ -39,6 +39,10 @@ folder_colors={
 
 Player=""
 Enemy=""
+
+[gui]
+
+theme/custom_font="uid://pntlljl77f2n"
 
 [input]
 
@@ -87,6 +91,12 @@ u={
 
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+
+[maaacks_options_menus]
+
+disable_update_check=false
+disable_install_wizard=true
+copy_path="res://UI/revamped/example_settings/"
 
 [rendering]
 

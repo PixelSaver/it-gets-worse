@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bdfa32qk62ofn" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="PackedScene" uid="uid://cjrrrihvbu5g2" path="res://Scripts/Components/health_component.tscn" id="3_287tu"]
 [ext_resource type="PackedScene" uid="uid://ccmysrmb86a4n" path="res://Scripts/Components/hitbox_component.tscn" id="4_0830c"]
-[ext_resource type="Texture2D" uid="uid://dalr1718hr57v" path="res://Assets/flame/death/flame death spritesheet.png" id="4_ghaa6"]
-[ext_resource type="Texture2D" uid="uid://ddc16bcssahko" path="res://Assets/flame/idle/flame idle spritesheet.png" id="5_1dp5w"]
+[ext_resource type="Texture2D" uid="uid://dalr1718hr57v" path="res://Assets/it-gets-worse-art/flame/death/flame death spritesheet.png" id="4_ghaa6"]
+[ext_resource type="Texture2D" uid="uid://ddc16bcssahko" path="res://Assets/it-gets-worse-art/flame/idle/flame idle spritesheet.png" id="5_1dp5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
 custom_solver_bias = 1.0

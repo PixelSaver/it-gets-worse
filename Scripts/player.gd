@@ -43,8 +43,9 @@ func _physics_process(delta: float) -> void:
 			)
 		)
 	elif Input.is_action_just_pressed("u") and OS.is_debug_build():
-		var test_array : Array[BaseStrategy] = Global.upgrade_manager.pick_random(3)
-		Global.ui.show_upgrade(test_array)
+		var upgrade_array : Array[BaseStrategy] = Global.upgrade_manager.pick_random(3)
+		#Global.ui.show_upgrade(test_array)
+		Global.in_game_ui.show_upgrade(upgrade_array)
 	
 	
 	var direction := Input.get_vector("left", "right", "up", "down")
@@ -79,7 +80,8 @@ func get_impulse(current_velocity:Vector2, target_velocity:Vector2, acceleration
 	return (_direction * _ratio)
 	
 func kill():
-	Global.ui.death_menu.open()
+	Global.in_game_ui.death_show()
+	pass
 	
 func add_upgrade(upgrade:BaseStrategy):
 	if upgrade is BaseBulletStrategy:

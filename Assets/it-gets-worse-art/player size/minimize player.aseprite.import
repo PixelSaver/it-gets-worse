@@ -1,0 +1,20 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://rk2dq4untihn"
+path="res://.godot/imported/minimize player.aseprite-45767d8657cf84c23c1cadc550d598d9.res"
+
+[deps]
+
+source_file="res://Assets/it-gets-worse-art/player size/minimize player.aseprite"
+dest_files=["res://.godot/imported/minimize player.aseprite-45767d8657cf84c23c1cadc550d598d9.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1

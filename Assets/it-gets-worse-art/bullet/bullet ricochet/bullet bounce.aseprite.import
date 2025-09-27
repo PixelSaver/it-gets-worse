@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dtekm6lw76oks"
+path="res://.godot/imported/bullet bounce.aseprite-e79b6ef9116cab4bc6b07a99e37f627a.res"
+
+[deps]
+
+source_file="res://Assets/it-gets-worse-art/bullet/bullet ricochet/bullet bounce.aseprite"
+dest_files=["res://.godot/imported/bullet bounce.aseprite-e79b6ef9116cab4bc6b07a99e37f627a.res"]
+
+[params]
+

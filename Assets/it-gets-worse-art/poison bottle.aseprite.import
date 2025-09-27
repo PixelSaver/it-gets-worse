@@ -1,0 +1,20 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
+uid="uid://dr5l2ku754bpy"
+path="res://.godot/imported/poison bottle.aseprite-7f99bf9f792c9a029e86d67092ae2597.res"
+
+[deps]
+
+source_file="res://Assets/it-gets-worse-art/poison bottle.aseprite"
+dest_files=["res://.godot/imported/poison bottle.aseprite-7f99bf9f792c9a029e86d67092ae2597.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/scale=1

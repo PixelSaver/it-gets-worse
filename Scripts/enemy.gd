@@ -5,13 +5,25 @@ class_name Enemy
 @onready var hitbox_component : HitboxComponent = $HitboxComponent
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var anime: AnimatedSprite2D = $Anime
+
+var enemy_attack_cooldown : float = .5
+var attack_timer: Timer
+var can_attack: bool = true
+var player_in_hitbox: HitboxComponent = null
 var exp_value = 1
 var enemy_speed : float = 1000
 var is_dead : bool = false
 
-
 func _ready() -> void:
 	Global.enemy_list.append(self)
+	
+	attack_timer = Timer.new()
+	attack_timer.wait_time = enemy_attack_cooldown
+	attack_timer.one_shot = true
+	attack_timer.timeout.connect(_on_attack_timer_timeout)
+	add_child(attack_timer)
+	
+	hitbox_component.area_exited.connect(_on_hitbox_component_area_exited)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if not Global.player: return
@@ -30,19 +42,32 @@ func get_atk() -> Attack:
 
 func _on_hitbox_component_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent and area.is_in_group("Player"):
-		area.damage(get_atk())
+		player_in_hitbox = area
+		if can_attack:
+			area.damage(get_atk())
+			can_attack = false
+			attack_timer.start()
 
+func _on_hitbox_component_area_exited(area: Area2D) -> void:
+	if area == player_in_hitbox:
+		player_in_hitbox = null
+
+func _on_attack_timer_timeout():
+	can_attack = true
+	if player_in_hitbox and not is_dead:
+		player_in_hitbox.damage(get_atk())
+		attack_timer.start()
+		can_attack = false
+		
 func kill():
+	if is_dead == true: return
 	is_dead = true
 	call_deferred("disable_collision")
 	anime.play("death")
-	hitbox_component.is_dead = true
 	Global.enemy_list.erase(self)
-	Global
+	Global.enemies_killed += 1
 	
-	#TODO Revamp EXP system
 	Global.player.experience_component.update_exp(exp_value)
-	
 	
 	await anime.animation_finished
 	queue_free()
