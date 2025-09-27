@@ -9,6 +9,8 @@ class_name InGameUI
 @export var upgrade_container : Control
 @export var pause_screen : Control
 @export var death_screen : Control
+@export var death_score : RichTextLabel
+@export var death_enemies : RichTextLabel 
 
 var single_upgrade_ui_scene : PackedScene 
 
@@ -76,9 +78,12 @@ func _on_death_quit_pressed() -> void:
 
 
 func death_show():
+	death_score.text = "Score: %s" % str(Global.game_timer)
+	death_enemies.text = "Enemies Killed: %s" % str(Global.enemies_killed)
 	death_screen.show()
 	death_screen.grab_focus()
 	get_tree().paused = true
+	
 
 func show_upgrade(arr:Array[BaseStrategy]):
 	upgrade_screen.show()

@@ -65,7 +65,7 @@ corner_detail = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0np8"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.662745)
 
-[node name="InGameUI" type="Control" node_paths=PackedStringArray("hud", "hud_health_bar", "hud_exp_bar", "hud_score", "upgrade_screen", "upgrade_container", "pause_screen", "death_screen")]
+[node name="InGameUI" type="Control" node_paths=PackedStringArray("hud", "hud_health_bar", "hud_exp_bar", "hud_score", "upgrade_screen", "upgrade_container", "pause_screen", "death_screen", "death_score", "death_enemies")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,6 +83,8 @@ upgrade_screen = NodePath("UpgradeScreen")
 upgrade_container = NodePath("UpgradeScreen/PauseMenuPanel/UpgradesContainer/VBoxContainer/UpgradeChoicesContainer")
 pause_screen = NodePath("PauseScreen")
 death_screen = NodePath("DeathScreen")
+death_score = NodePath("DeathScreen/VBoxContainer/Separator/HBoxContainer/MarginContainer/ScoreLabel")
+death_enemies = NodePath("DeathScreen/VBoxContainer/Separator/HBoxContainer/MarginContainer2/EnemiesLabel")
 
 [node name="HUD" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -411,6 +413,46 @@ vertical_alignment = 2
 
 [node name="Separator" type="Control" parent="DeathScreen/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="DeathScreen/VBoxContainer/Separator"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.3
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="DeathScreen/VBoxContainer/Separator/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -40
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ScoreLabel" type="RichTextLabel" parent="DeathScreen/VBoxContainer/Separator/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.9387, 0.495228, 0.499956, 1)
+text = "Score: 10.4"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="DeathScreen/VBoxContainer/Separator/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -40
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="EnemiesLabel" type="RichTextLabel" parent="DeathScreen/VBoxContainer/Separator/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.9387, 0.495228, 0.499956, 1)
+text = "Enemies killed: 10"
+fit_content = true
 
 [node name="DeathRestart" type="Button" parent="DeathScreen/VBoxContainer"]
 layout_mode = 2

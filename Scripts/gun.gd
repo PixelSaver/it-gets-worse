@@ -4,7 +4,7 @@ class_name Gun
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 var spread : float = .5
 var recoil_str : float = 300
-var multishot : int = 5
+var multishot : int = 1
 var bullets_per_second = 5
 var timer = 1000000
 
@@ -19,7 +19,7 @@ func fire(dir: Vector2) -> bool:
 	dir = dir.normalized()
 	var base_angle = dir.angle()
 	
-	if multishot == 1:
+	if multishot <= 1:
 		var rand_angle = (dir + Vector2.from_angle(randfn(dir.angle(), spread))).angle()
 		_spawn_bullet(rand_angle)
 	else:
