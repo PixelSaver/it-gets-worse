@@ -71,6 +71,8 @@ func pause_toggle():
 # Death Buttons
 func _on_death_restart_pressed() -> void:
 	var main_scene = load("res://Scenes/main.tscn")
+	Global.enemies_killed = 0
+	Global.game_timer = null
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(main_scene)
 func _on_death_quit_pressed() -> void:
