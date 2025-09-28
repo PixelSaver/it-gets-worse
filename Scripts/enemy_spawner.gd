@@ -27,6 +27,8 @@ func add_enemy_upgrades(enemy:Enemy):
 	var upgrade_arr := Global.upgrade_manager.pick_random_enemy_upgrade(upgrade_count)
 	for upgrade in upgrade_arr:
 		upgrade.apply_upgrade(enemy)
+	
+	enemy.randomize_stats()
 
 func _on_experience_component_level_up(new_level: int) -> void:
 	spawn_rate_mult = exp(-float(new_level)/10)

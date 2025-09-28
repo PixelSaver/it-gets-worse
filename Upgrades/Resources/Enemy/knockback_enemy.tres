@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_p75mi")
-knockback_mult = 1.2
+knockback_mult = 1.1
 texture = ExtResource("2_6cv4i")
 upgrade_text = "Enemy Knockback"
 upgrade_description = ""

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_sjtss")
-speed_mult = 1.2
+speed_mult = 1.4
 texture = ExtResource("2_daeyy")
 upgrade_text = "Enemy Speed"
 upgrade_description = ""

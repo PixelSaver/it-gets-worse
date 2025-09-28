@@ -76,3 +76,13 @@ func kill():
 
 func disable_collision():
 	collision_shape.disabled = true
+
+func randomize_stats():
+	scale = Vector2.ONE * randfn(scale.x,.1)
+	enemy_attack.atk_str *= randfn(1, 0.1)
+	attack_timer.wait_time = max(randfn(enemy_attack_cooldown, 0.5), 0.00001)
+	enemy_attack_cooldown = attack_timer.wait_time 
+	enemy_attack.knockback_str *= randfn(1, 0.1)
+	health_component.update_max_health(randfn(1,0.2))
+	enemy_speed *= randfn(1, 0.1)
+	
