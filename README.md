@@ -13,6 +13,10 @@ Web version on [my itch](https://pixelsaver.itch.io/it-gets-worse) (or build it 
 Move to dodge incoming enemies. (WASD)
 Shoot to survive as long as possible. (Left Click, aim with mouse position)
 Adapt to your random upgrades and overcome the debuffs stacking against you.
+** Pause menu only works in non-web version, since itch.io steals the esc key input. Oops.
+
+## Screenshots
+![Menu Screen](image1.png) ![Gameplay](image2.png) ![Upgrade Menu](image4.png) ![Death Screen](image3.png)
 
 ## Inspiration
 This project draws inspiration from 20 Minutes Till Dawn and Vampire Survivors, reimagined with its own escalating difficulty mechanic.
@@ -31,6 +35,16 @@ Used [Godot Open Source Engine](https://github.com/godotengine) (its amazing)
 Used impulse functions from [Nesvers](https://github.com/nezvers/Godot-GameTemplate/)
 
 Background art from [Seth's 32 Rogues](https://sethbb.itch.io/32rogues)
+
+Thanks to Viniciusgerevini for their [aseprite wizard addon](https://github.com/viniciusgerevini/godot-aseprite-wizard)
+Thanks to BudzioT for their [super wakatime addon](https://github.com/BudzioT/Godot_Super-Wakatime)
+
+Thanks to [Bitlytic](https://github.com/Bitlytic) for his [video on composition](https://www.youtube.com/watch?v=74y6zWZfQKk
+
+Claude helped to write a lot of the Editor Scripts (res://Scripts/Editor Scripts)
+
+ChatGPT helped a lot with the UpgradeManager class (I couldn't figure out how to get it to load on web when it worked fine in editor) 
+upgrade_manager.gd can be found in res://Scripts.
 
 Art from my good friend @OfKnee (not sure how to @ a github account from a readme but there you go)
 
