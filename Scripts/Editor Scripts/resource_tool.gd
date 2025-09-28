@@ -6,7 +6,7 @@ const STRING_MOD = ""
 ## Only use this to change to inverse
 const ADDON_MULT = 1
 
-const OUTPUT_DIRECTORY = "res://Upgrades/Resources/Positive"
+const OUTPUT_DIRECTORY = "res://Upgrades/Resources/Enemy"
 
 const OUTPUT_EXTENSION = ".tres"
 
@@ -20,7 +20,7 @@ func _run():
 
 func _scan_for_strategy_files():
 	strategy_files.clear()
-	_scan_directory("res://Upgrades")
+	_scan_directory("res://Upgrades/Resources/Enemy")
 	print("Found ", strategy_files.size(), " strategy files")
 
 func _scan_directory(path: String):

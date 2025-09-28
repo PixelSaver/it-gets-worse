@@ -19,7 +19,14 @@ func spawn_enemy():
 	var curr_enemy = enemy_scene.instantiate()
 	curr_enemy.global_position = Global.player.global_position + Global.player.velocity + rand_dir * enemy_spawn_dist
 	add_child(curr_enemy)
+	await get_tree().process_frame
+	add_enemy_upgrades(curr_enemy)
 
+func add_enemy_upgrades(enemy:Enemy):
+	var upgrade_count = floor(Global.game_timer.total_time / 10)+1
+	var upgrade_arr := Global.upgrade_manager.pick_random_enemy_upgrade(upgrade_count)
+	for upgrade in upgrade_arr:
+		upgrade.apply_upgrade(enemy)
 
 func _on_experience_component_level_up(new_level: int) -> void:
 	spawn_rate_mult = exp(-float(new_level)/10)

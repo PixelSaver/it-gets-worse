@@ -6,6 +6,7 @@ class_name Enemy
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var anime: AnimatedSprite2D = $Anime
 
+var enemy_attack : Attack
 var enemy_attack_cooldown : float = .5
 var attack_timer: Timer
 var can_attack: bool = true
@@ -16,6 +17,10 @@ var is_dead : bool = false
 
 func _ready() -> void:
 	Global.enemy_list.append(self)
+	
+	enemy_attack = Attack.new()
+	enemy_attack.atk_str = 1
+	enemy_attack.knockback_str = 10
 	
 	attack_timer = Timer.new()
 	attack_timer.wait_time = enemy_attack_cooldown
@@ -34,11 +39,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	state.apply_force(dir_to_player * enemy_speed)
 
 func get_atk() -> Attack:
-	var attack = Attack.new()
-	attack.atk_str = 1
-	attack.atk_pos = global_position
-	attack.knockback_str = 10
-	return attack
+	enemy_attack.atk_pos = global_position
+	return enemy_attack
 
 func _on_hitbox_component_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent and area.is_in_group("Player"):
@@ -58,9 +60,9 @@ func _on_attack_timer_timeout():
 		player_in_hitbox.damage(get_atk())
 		attack_timer.start()
 		can_attack = false
-		
+
 func kill():
-	if is_dead == true: return
+	if is_dead == true or Global.enemy_list.find(self) == -1: return
 	is_dead = true
 	call_deferred("disable_collision")
 	anime.play("death")

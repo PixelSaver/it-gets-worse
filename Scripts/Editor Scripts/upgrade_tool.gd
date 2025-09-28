@@ -3,10 +3,10 @@
 @tool
 extends EditorScript
 
-var directory = "res://Upgrades/Resources/Negative"
+var directory = "res://Upgrades/Resources/Enemy"
 
 func _run():
-	print("=== UPGRADE FILES IN %d ===" % directory)
+	print("=== UPGRADE FILES IN %s ===" % directory)
 	var dir = DirAccess.open(directory)
 	if dir:
 		dir.list_dir_begin()
@@ -15,7 +15,7 @@ func _run():
 		
 		while file_name != "":
 			if file_name.ends_with(".tres"):
-				print('preload("res://Upgrades/Resources/' + file_name + '"),')
+				print('preload("'+ directory + "/" + file_name + '"),' )
 				count += 1
 			file_name = dir.get_next()
 			

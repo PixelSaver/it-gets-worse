@@ -21,6 +21,12 @@ var all_negative_upgrades : Array[BaseStrategy] = [
 	preload("res://Upgrades/Resources/Negative/speed_bullet.tres"),
 	preload("res://Upgrades/Resources/Negative/speed_player.tres"),
 ]
+var all_enemy_upgrades : Array[BaseEnemyStrategy] = [
+	preload("res://Upgrades/Resources/Enemy/damage_enemy.tres"),
+	preload("res://Upgrades/Resources/Enemy/health_enemy.tres"),
+	preload("res://Upgrades/Resources/Enemy/knockback_enemy.tres"),
+	preload("res://Upgrades/Resources/Enemy/speed_enemy.tres"),
+]
 
 func load_all_upgrades(path: String) -> Array[BaseStrategy]:
 	var upgrades: Array[BaseStrategy] = []
@@ -99,6 +105,15 @@ func pick_random(iter:int, is_positive:bool=false) -> Array[BaseStrategy]:
 		)
 	return out
 
+func pick_random_enemy_upgrade(count:int=1) -> Array[BaseEnemyStrategy]:
+	var out : Array[BaseEnemyStrategy] = []
+	for i in range(count):
+		out.append(
+			all_enemy_upgrades[
+				randi_range(0,all_enemy_upgrades.size()-1)
+			]
+		)
+	return out
 
 func _on_experience_component_level_up(new_level: int) -> void:
 	var upgrade_array : Array[BaseStrategy] = pick_random(3)
