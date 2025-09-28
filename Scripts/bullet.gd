@@ -19,7 +19,8 @@ func init(dir:Vector2, lifetime:float=10):
 	
 	stored_attack = Attack.new()
 	stored_attack.atk_str = 1
-	stored_attack.knockback_str = 100
+	stored_attack.knockback_str = 500
+	stored_attack.bullet_dir = bullet_direction
 	bullet_pierce = 1
 	bullet_ricochet = 1
 
