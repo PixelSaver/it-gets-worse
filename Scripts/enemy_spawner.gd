@@ -3,7 +3,7 @@ extends Node2D
 @onready var enemy_scene = preload("res://Scenes/enemy.tscn")
 var enemy_spawn_rate : float = .3
 var spawn_rate_mult : float = 1
-var enemy_spawn_dist : float = 1000
+var enemy_spawn_dist : float = 1500
 var time_diff : float = 0
 
 func _process(delta: float) -> void:
