@@ -6,6 +6,7 @@ class_name Player
 @onready var hitbox_component : HitboxComponent = $HitboxComponent
 @onready var experience_component: ExperienceComponent = $ExperienceComponent
 @onready var scythe_manager: ScytheManager = $ScytheManager
+@onready var sprite: Sprite2D = $Sprite2D
 var player_speed = 300
 var acceleration = 1500
 var force := Vector2.ZERO  # Accumulated forces
