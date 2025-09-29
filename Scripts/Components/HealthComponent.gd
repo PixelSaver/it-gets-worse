@@ -89,6 +89,5 @@ func get_is_invulnerable() -> bool:
 
 ## Takes in a multiplier to affect max health proportionally
 func update_max_health(max_multiplier: float):
-	print("max health updated")
 	health *= max_multiplier
 	max_health *= max_multiplier

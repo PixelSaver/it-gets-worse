@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgu54jkbq6p2d"]
+
+[ext_resource type="Texture2D" uid="uid://bpic5keywvw7i" path="res://Assets/it-gets-worse-art/scythe big.aseprite" id="1_f3rh1"]
+[ext_resource type="Script" uid="uid://0sv1ogygly6v" path="res://Scripts/scythe.gd" id="1_p68wk"]
+
+[node name="Scythe" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_p68wk")
+
+[node name="HitScan" type="Area2D" parent="."]
+position = Vector2(-5, -5)
+collision_layer = 0
+collision_mask = 4
+input_pickable = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitScan"]
+polygon = PackedVector2Array(15.3333, 11.3333, 6.33333, -8.33333, -2.33333, -13.6667, -9.33333, -14, -16.3333, -4.33333, -16.3333, 8, -10.6667, 13.6667, -3.66667, 13.6667, -6.66667, 3.33333, -1.33333, -3, 11.6667, 12.6667)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f3rh1")
+offset = Vector2(-5, -5)
+
+[connection signal="area_entered" from="HitScan" to="." method="_on_hit_scan_area_entered"]

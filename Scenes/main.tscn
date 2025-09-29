@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://coix3ck81pwnx"]
+[gd_scene load_steps=24 format=4 uid="uid://coix3ck81pwnx"]
 
 [ext_resource type="TileSet" uid="uid://cr6elbe022ikv" path="res://Assets/tileset.tres" id="1_6iyac"]
 [ext_resource type="Script" uid="uid://bbjs77er54yg5" path="res://Scripts/player.gd" id="1_bo1nx"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://y1yckyr7sr81" path="res://Assets/it-gets-worse-art/muzzle flash.aseprite" id="6_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://d4fbpb50wkd1s" path="res://Scenes/experience_component.tscn" id="7_jkdf5"]
 [ext_resource type="Script" uid="uid://cdhe8rcmd38se" path="res://Scripts/upgrade_manager.gd" id="9_fdnlq"]
+[ext_resource type="Script" uid="uid://cegfvtwfo0xh3" path="res://Scenes/scythe_manager.gd" id="10_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://cnbmr6e8l23qx" path="res://UI/revamped/in_game_ui.tscn" id="15_k12tt"]
 [ext_resource type="Script" uid="uid://ddrspqprbk38j" path="res://Scripts/game_timer.gd" id="15_wsu2k"]
 
@@ -98,6 +99,9 @@ shape = SubResource("CircleShape2D_ynf5e")
 
 [node name="ExperienceComponent" parent="Player" instance=ExtResource("7_jkdf5")]
 leveling_curve = SubResource("Curve_wsu2k")
+
+[node name="ScytheManager" type="Node2D" parent="Player"]
+script = ExtResource("10_wsu2k")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("3_8gbba")

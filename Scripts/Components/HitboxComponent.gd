@@ -14,6 +14,9 @@ func damage(attack: Attack):
 		elif get_parent() is Enemy:
 			var par = get_parent() as Enemy
 			par.apply_central_impulse(attack.bullet_dir * attack.knockback_str)
+			par.apply_central_impulse(
+				(global_position - attack.atk_pos).normalized() * attack.knockback_str
+			)
 		#await get_tree().create_timer(invulnerability_timer).timeout
 
 		
