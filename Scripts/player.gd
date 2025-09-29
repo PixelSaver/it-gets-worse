@@ -6,8 +6,7 @@ class_name Player
 @onready var hitbox_component : HitboxComponent = $HitboxComponent
 @onready var experience_component: ExperienceComponent = $ExperienceComponent
 var player_speed = 300
-var acceleration = 5000
-var friction : float = 400
+var acceleration = 1500
 var force := Vector2.ZERO  # Accumulated forces
 # Gun stuff
 @onready var gun : Gun = $Gun
@@ -55,9 +54,7 @@ func _physics_process(delta: float) -> void:
 	# Apply input as acceleration
 	var target_velocity = direction.normalized() * player_speed
 	velocity += get_impulse(velocity, target_velocity,acceleration, delta)
-	#velocity *= axis_multiplier_resource.value
 	move_and_slide()
-	#velocity *= axis_compensation
 	
 
 # Impulse functions from https://github.com/nezvers/Godot-GameTemplate/

@@ -5,4 +5,4 @@ class_name HealthEnemyStrategy
 
 func apply_upgrade(enemy: Enemy):
 	enemy.health_component.update_max_health(health_mult)
-	enemy.scale_enemy(1.2)
+	enemy.scale_enemy(1.05)

@@ -4,7 +4,7 @@ class_name Gun
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 @onready var muzzle_flash: Sprite2D = $MuzzleFlash
 var spread : float = .5
-var recoil_str : float = 300
+var recoil_str : float = 600
 var multishot : int = 1
 var bullets_per_second = 5
 var timer = 1000000
@@ -86,4 +86,5 @@ func _spawn_bullet(angle: float) -> void:
 	# apply upgrades
 	for strategy in Global.player.bullet_upgrades:
 		strategy.apply_upgrade(curr_bullet)
-	self.scale = (Vector2.ONE * curr_bullet.scale)
+	self.scale = curr_bullet.scale
+	self.recoil_str = 70 * curr_bullet.scale.x * max(multishot/2,1)
