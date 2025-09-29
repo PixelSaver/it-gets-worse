@@ -6,3 +6,4 @@ class_name SpeedEnemyStrategy
 func apply_upgrade(enemy: Enemy):
 	enemy.enemy_speed *= speed_mult
 	enemy.scale_enemy(0.95)
+	enemy.mass *= 0.95

@@ -17,6 +17,8 @@ func damage(attack: Attack):
 			par.apply_central_impulse(
 				(global_position - attack.atk_pos).normalized() * attack.knockback_str
 			)
+			await create_tween().tween_property(par.anime, "modulate", Color(Color.WHITE, 0.4), 0.2).finished
+			create_tween().tween_property(par.anime, "modulate", Color(Color.WHITE, 1), 0.2)
 		#await get_tree().create_timer(invulnerability_timer).timeout
 
 		
