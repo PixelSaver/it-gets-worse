@@ -11,12 +11,13 @@ var experience : float = 0.0 :
 var max_exp : float = 100 :
 	set(val):
 		max_exp = val
+var exp_mult : float = 1
 
 func _ready():
 	max_exp = calc_max_exp(1)
 
 func update_exp(additional_exp:float):
-	experience += additional_exp
+	experience += additional_exp * exp_mult
 	while experience > max_exp:
 		experience -= max_exp
 		max_exp = calc_max_exp(level + 1)

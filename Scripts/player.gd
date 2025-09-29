@@ -16,7 +16,9 @@ var force := Vector2.ZERO  # Accumulated forces
 var gun_automatic : bool = true
 var bullet_upgrades : Array[BaseBulletStrategy] = []
 var player_upgrades : Array[BasePlayerStrategy] = []
-
+var exp_mult : float :
+	set(val):
+		experience_component.exp_mult = val
 
 # Called by other nodes to add a force
 func apply_force(f: Vector2) -> void:

@@ -80,6 +80,7 @@ offset = Vector2(-20, -10)
 script = ExtResource("3_jjvhh")
 
 [node name="MuzzleFlash" type="Sprite2D" parent="Player/Gun"]
+visible = false
 position = Vector2(6.84, -7.16)
 rotation = 2.61799
 texture = ExtResource("6_jkdf5")

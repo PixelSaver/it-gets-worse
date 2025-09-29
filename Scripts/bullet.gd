@@ -45,6 +45,9 @@ func _on_area_entered(area: Area2D) -> void:
 				bullet_ricochet -= 1
 				var closest_enemy = Global.get_closest_enemy(self.global_position)
 				bullet_direction = closest_enemy.global_position + closest_enemy.linear_velocity - global_position
+				
+				await get_tree().process_frame
+				stored_attack.bullet_dir = bullet_direction
 			else: 
 				queue_free()
 func _apply_damage(health: HitboxComponent):

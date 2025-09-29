@@ -77,8 +77,16 @@ func kill():
 func disable_collision():
 	collision_shape.disabled = true
 
+func scale_enemy(scale_factor:float):
+	hitbox_component.scale = hitbox_component.scale * scale_factor
+	health_component.scale = health_component.scale * scale_factor
+	collision_shape.scale = collision_shape.scale * scale_factor
+	anime.scale = anime.scale * scale_factor
+	#anime.speed_scale = anime.speed_scale / ((scale_factor-1)/2+1)
+	anime.speed_scale = anime.speed_scale / scale_factor
+
 func randomize_stats():
-	scale = Vector2.ONE * randfn(scale.x,.1)
+	scale_enemy(hitbox_component.scale.x * randfn(1,0.05))
 	enemy_attack.atk_str *= randfn(1, 0.1)
 	attack_timer.wait_time = max(randfn(enemy_attack_cooldown, 0.5), 0.00001)
 	enemy_attack_cooldown = attack_timer.wait_time 

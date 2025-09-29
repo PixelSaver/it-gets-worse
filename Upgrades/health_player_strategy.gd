@@ -6,3 +6,4 @@ extends BasePlayerStrategy
 func apply_upgrade(player:Player):
 	print("trying to apply")
 	player.health_component.update_max_health(max_health_change)
+	#player.apply_scale(Vector2.ONE * max_health_change)

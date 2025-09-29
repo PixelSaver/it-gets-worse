@@ -86,3 +86,4 @@ func _spawn_bullet(angle: float) -> void:
 	# apply upgrades
 	for strategy in Global.player.bullet_upgrades:
 		strategy.apply_upgrade(curr_bullet)
+	self.scale = (Vector2.ONE * curr_bullet.scale)
