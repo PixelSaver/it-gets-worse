@@ -14,8 +14,8 @@ func update_scythe_list(target_size:int):
 	while scythe_list.size() < target_size:
 		print("instaitate")
 		var scythe = SCYTHE.instantiate()
-		scythe.rotation = randf_range(0,PI*2)
-		scythe.spin_freq *= randfn(1,0.1)
+		#scythe.rotation = randf_range(0,PI*2)
+		#scythe.spin_freq *= randfn(1,0.1)
 		scythe_list.append(scythe)
 		add_child(scythe)
 	
@@ -24,7 +24,10 @@ func update_scythe_list(target_size:int):
 		scythe_list.remove_at(0)
 	
 	for i in range(scythe_list.size()):
-		scythe_list[i].revolve_index = float(i) / scythe_list.size()
+		var scythe = scythe_list[i]
+		scythe.revolve_index = float(i) / scythe_list.size()
+		scythe.position = rotate_vec(1-scythe.revolve_index) * distance
+		scythe.rotation = scythe.global_position.direction_to(get_parent().global_position).angle()
 
 func _process(delta: float) -> void:
 	for i in range(scythe_list.size()):

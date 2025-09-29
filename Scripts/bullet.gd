@@ -19,7 +19,7 @@ func init(dir:Vector2, lifetime:float=10):
 	
 	stored_attack = Attack.new()
 	stored_attack.atk_str = 1
-	stored_attack.knockback_str = 500
+	stored_attack.knockback_str = 300
 	stored_attack.bullet_dir = bullet_direction
 	bullet_pierce = 1
 	bullet_ricochet = 1
@@ -46,6 +46,7 @@ func _on_area_entered(area: Area2D) -> void:
 				var closest_enemy = Global.get_closest_enemy(self.global_position)
 				bullet_direction = closest_enemy.global_position + closest_enemy.linear_velocity - global_position
 				
+				await get_tree().process_frame
 				await get_tree().process_frame
 				stored_attack.bullet_dir = bullet_direction
 			else: 

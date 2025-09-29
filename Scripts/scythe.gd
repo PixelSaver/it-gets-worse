@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 	stored_attack = Attack.new()
 	stored_attack.atk_str = 1
-	stored_attack.knockback_str = 500
+	stored_attack.knockback_str = 100
 
 func _process(delta: float) -> void:
 	rotation += spin_freq * delta

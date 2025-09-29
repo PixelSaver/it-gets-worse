@@ -9,7 +9,7 @@ class_name Player
 var player_speed = 300
 var acceleration = 1500
 var force := Vector2.ZERO  # Accumulated forces
-var num_scythe : int = 0 : 
+var num_scythe : int = 3 : 
 	set(val):
 		num_scythe = val
 		scythe_manager.update_scythe_list(val)

@@ -100,8 +100,12 @@ func pick_random(iter:int, is_positive:bool=false) -> Array[BaseStrategy]:
 	else: test_arr = all_negative_upgrades
 	
 	for i in range(iter):
+		var rand_upgrade = test_arr[randi_range(0,test_arr.size()-1)] as BaseStrategy
+		while Global.player.num_scythe == 0 and rand_upgrade.upgrade_text.to_lower().contains("scythe"):
+			rand_upgrade = test_arr[randi_range(0,test_arr.size()-1)] as BaseStrategy
+		
 		out.append(
-			test_arr[randi_range(0,test_arr.size()-1)]
+			rand_upgrade
 		)
 	return out
 
